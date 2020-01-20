@@ -17,7 +17,7 @@ namespace EventFinder_GC.Controllers
         // GET: Events
         public ActionResult Index()
         {
-            var events = db.Events.Include(@ => @.Address).Include(@ => @.Host);
+            var events = db.Events.Include(e => e.Address).Include(e => e.Host);
             return View(events.ToList());
         }
 
