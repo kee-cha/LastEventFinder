@@ -349,5 +349,5 @@ MigrationBackup/
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
 
-# custom ignore
 /Migrations/*
+>>>>>>> 2f1411f459df43cded0fb20d0f88cdd58abfa5ee
