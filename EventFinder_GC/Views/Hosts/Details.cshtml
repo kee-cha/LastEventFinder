@@ -38,5 +38,6 @@
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.HostId }) |
+    @Html.ActionLink("Create New Event", "Create", "Events", new { id = Model.HostId },"") |
     @Html.ActionLink("Back to List", "Index")
 </p>

@@ -169,8 +169,16 @@ namespace EventFinder_GC.Controllers
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");    
                     //Assign Role to user Here       
                     await this.UserManager.AddToRoleAsync(user.Id, model.UserRoles);
-                    //Ends Here     
-                    return RedirectToAction("Index", "Users");
+                    //Ends Here 
+                    if(model.UserRoles == "Customers")
+                    {
+                        return RedirectToAction("Index", "Customers");
+                    }
+                    else
+                    {
+                        return RedirectToAction("Index", "Hosts");
+                    }
+                    
                 }
                 ViewBag.Name = new SelectList(context.Roles.Where(u => !u.Name.Contains("Admin"))
                                           .ToList(), "Name", "Name");
