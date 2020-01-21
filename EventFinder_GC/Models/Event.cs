@@ -16,6 +16,8 @@ namespace EventFinder_GC.Models
         public string Date { get; set; }
         public string Category { get; set; }
         public string SubCategory { get; set; }
+        public bool IsEvent { get; set; }
+
         [ForeignKey("Host")]
         public int HostId { get; set; }
         public Host Host { get; set; }
