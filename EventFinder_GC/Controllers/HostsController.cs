@@ -58,9 +58,6 @@ namespace EventFinder_GC.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            
-
-            ViewBag.ApplicationId = new SelectList(db.Users, "Id", "Email", host.ApplicationId);
             return View(host);
         }
 
