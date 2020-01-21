@@ -274,6 +274,10 @@
     <Compile Include="Migrations\202001212015290_InitialMigration.Designer.cs">
       <DependentUpon>202001212015290_InitialMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202001212200111_addAddressIntoEventAPIModel.cs" />
+    <Compile Include="Migrations\202001212200111_addAddressIntoEventAPIModel.Designer.cs">
+      <DependentUpon>202001212200111_addAddressIntoEventAPIModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -380,6 +384,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202001212015290_InitialMigration.resx">
       <DependentUpon>202001212015290_InitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001212200111_addAddressIntoEventAPIModel.resx">
+      <DependentUpon>202001212200111_addAddressIntoEventAPIModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
