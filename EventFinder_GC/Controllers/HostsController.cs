@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using EventFinder_GC.Models;
+using Microsoft.AspNet.Identity;
 
 namespace EventFinder_GC.Controllers
 {
@@ -52,10 +53,12 @@ namespace EventFinder_GC.Controllers
         {
             if (ModelState.IsValid)
             {
+                host.ApplicationId = User.Identity.GetUserId();
                 db.Hosts.Add(host);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            
 
             ViewBag.ApplicationId = new SelectList(db.Users, "Id", "Email", host.ApplicationId);
             return View(host);
