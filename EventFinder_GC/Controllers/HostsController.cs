@@ -39,7 +39,7 @@ namespace EventFinder_GC.Controllers
         // GET: Hosts/Create
         public ActionResult Create()
         {
-            ViewBag.ApplicationId = new SelectList(db.ApplicationUsers, "Id", "Email");
+            ViewBag.ApplicationId = new SelectList(db.Users, "Id", "Email");
             return View();
         }
 
@@ -57,7 +57,7 @@ namespace EventFinder_GC.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.ApplicationId = new SelectList(db.ApplicationUsers, "Id", "Email", host.ApplicationId);
+            ViewBag.ApplicationId = new SelectList(db.Users, "Id", "Email", host.ApplicationId);
             return View(host);
         }
 
@@ -73,7 +73,7 @@ namespace EventFinder_GC.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.ApplicationId = new SelectList(db.ApplicationUsers, "Id", "Email", host.ApplicationId);
+            ViewBag.ApplicationId = new SelectList(db.Users, "Id", "Email", host.ApplicationId);
             return View(host);
         }
 
@@ -90,7 +90,7 @@ namespace EventFinder_GC.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.ApplicationId = new SelectList(db.ApplicationUsers, "Id", "Email", host.ApplicationId);
+            ViewBag.ApplicationId = new SelectList(db.Users, "Id", "Email", host.ApplicationId);
             return View(host);
         }
 

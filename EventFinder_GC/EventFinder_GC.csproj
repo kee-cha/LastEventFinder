@@ -181,6 +181,10 @@
     <Compile Include="Migrations\202001202208595_InitialMigration.Designer.cs">
       <DependentUpon>202001202208595_InitialMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202001210253502_FixedErrorsForDb.cs" />
+    <Compile Include="Migrations\202001210253502_FixedErrorsForDb.Designer.cs">
+      <DependentUpon>202001210253502_FixedErrorsForDb.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Address.cs" />
@@ -289,6 +293,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202001202208595_InitialMigration.resx">
       <DependentUpon>202001202208595_InitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001210253502_FixedErrorsForDb.resx">
+      <DependentUpon>202001210253502_FixedErrorsForDb.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

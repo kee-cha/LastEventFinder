@@ -34,7 +34,7 @@ namespace EventFinder_GC.Models
 
         public System.Data.Entity.DbSet<EventFinder_GC.Models.Customer> Customers { get; set; }
 
-        public System.Data.Entity.DbSet<EventFinder_GC.Models.ApplicationUser> ApplicationUsers { get; set; }
+        //public System.Data.Entity.DbSet<EventFinder_GC.Models.ApplicationUser> ApplicationUsers { get; set; }
 
         public System.Data.Entity.DbSet<EventFinder_GC.Models.Event> Events { get; set; }
 

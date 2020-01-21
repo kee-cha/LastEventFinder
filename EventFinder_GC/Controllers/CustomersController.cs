@@ -40,7 +40,7 @@ namespace EventFinder_GC.Controllers
         public ActionResult Create()
         {
             ViewBag.AddressId = new SelectList(db.Addresses, "AddressId", "Street");
-            ViewBag.ApplicationId = new SelectList(db.ApplicationUsers, "Id", "Email");
+            ViewBag.ApplicationId = new SelectList(db.Users, "Id", "Email");
             return View();
         }
 
@@ -59,7 +59,7 @@ namespace EventFinder_GC.Controllers
             }
 
             ViewBag.AddressId = new SelectList(db.Addresses, "AddressId", "Street", customer.AddressId);
-            ViewBag.ApplicationId = new SelectList(db.ApplicationUsers, "Id", "Email", customer.ApplicationId);
+            ViewBag.ApplicationId = new SelectList(db.Users, "Id", "Email", customer.ApplicationId);
             return View(customer);
         }
 
@@ -76,7 +76,7 @@ namespace EventFinder_GC.Controllers
                 return HttpNotFound();
             }
             ViewBag.AddressId = new SelectList(db.Addresses, "AddressId", "Street", customer.AddressId);
-            ViewBag.ApplicationId = new SelectList(db.ApplicationUsers, "Id", "Email", customer.ApplicationId);
+            ViewBag.ApplicationId = new SelectList(db.Users, "Id", "Email", customer.ApplicationId);
             return View(customer);
         }
 
@@ -94,7 +94,7 @@ namespace EventFinder_GC.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.AddressId = new SelectList(db.Addresses, "AddressId", "Street", customer.AddressId);
-            ViewBag.ApplicationId = new SelectList(db.ApplicationUsers, "Id", "Email", customer.ApplicationId);
+            ViewBag.ApplicationId = new SelectList(db.Users, "Id", "Email", customer.ApplicationId);
             return View(customer);
         }
 
