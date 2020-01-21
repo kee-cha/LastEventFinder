@@ -55,7 +55,7 @@ namespace EventFinder_GC.Controllers
             {
                 db.Customers.Add(customer);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Customers");
             }
 
             ViewBag.AddressId = new SelectList(db.Addresses, "AddressId", "Street", customer.AddressId);

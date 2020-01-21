@@ -52,7 +52,7 @@ namespace EventFinder_GC.Controllers
             {
                 db.Addresses.Add(address);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Create", "Customers");
             }
 
             return View(address);
