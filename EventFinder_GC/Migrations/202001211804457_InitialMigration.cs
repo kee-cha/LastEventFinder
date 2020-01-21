@@ -103,6 +103,7 @@ namespace EventFinder_GC.Migrations
                         Date = c.String(),
                         Category = c.String(),
                         SubCategory = c.String(),
+                        IsEvent = c.Boolean(nullable: false),
                         HostId = c.Int(nullable: false),
                         AddressId = c.Int(nullable: false),
                     })

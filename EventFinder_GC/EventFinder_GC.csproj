@@ -17,7 +17,8 @@
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
-    <Use64BitIISExpress>false</Use64BitIISExpress>
+    <Use64BitIISExpress>
+    </Use64BitIISExpress>
     <IISExpressSSLPort>44303</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -180,7 +181,6 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AddressesController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
-    <Compile Include="Controllers\EventsAPIController.cs" />
     <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HostsController.cs" />
@@ -188,9 +188,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202001211451430_InitialMigration.cs" />
-    <Compile Include="Migrations\202001211451430_InitialMigration.Designer.cs">
-      <DependentUpon>202001211451430_InitialMigration.cs</DependentUpon>
+    <Compile Include="Migrations\202001211804457_InitialMigration.cs" />
+    <Compile Include="Migrations\202001211804457_InitialMigration.Designer.cs">
+      <DependentUpon>202001211804457_InitialMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -301,9 +301,8 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202001211451430_InitialMigration.resx">
-      <DependentUpon>202001211451430_InitialMigration.cs</DependentUpon>
-
+    <EmbeddedResource Include="Migrations\202001211804457_InitialMigration.resx">
+      <DependentUpon>202001211804457_InitialMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
