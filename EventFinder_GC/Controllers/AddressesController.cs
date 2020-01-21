@@ -50,8 +50,13 @@ namespace EventFinder_GC.Controllers
         {
             if (ModelState.IsValid)
             {
+                 
+
                 db.Addresses.Add(address);
                 db.SaveChanges();
+
+                //session passes an object, but we must remember this is an integer
+                Session["AddressId"] = address.AddressId;
                 return RedirectToAction("Create", "Customers");
             }
 
