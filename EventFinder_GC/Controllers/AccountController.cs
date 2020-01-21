@@ -175,9 +175,8 @@ namespace EventFinder_GC.Controllers
                     {
                         return RedirectToAction("Create", "Addresses");
                     } else
-
                     {
-                        return RedirectToAction("Index", "Hosts");
+                        return RedirectToAction("Create", "Hosts");
                     }
                     
                 }
