@@ -216,6 +216,11 @@
     <Content Include="Content\Site.css" />
     <Content Include="homeimg.jpg" />
     <Content Include="image\homeimg.jpg" />
+    <Content Include="image\image1.jpg" />
+    <Content Include="image\image2.jpg" />
+    <Content Include="image\image4.jpg" />
+    <Content Include="image\image5.jpg" />
+    <Content Include="image\mke365-logo.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
@@ -301,8 +306,10 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202001211804457_InitialMigration.resx">
-      <DependentUpon>202001211804457_InitialMigration.cs</DependentUpon>
+
+    <EmbeddedResource Include="Migrations\202001211451430_InitialMigration.resx">
+      <DependentUpon>202001211451430_InitialMigration.cs</DependentUpon>
+
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
