@@ -170,7 +170,6 @@ namespace EventFinder_GC.Controllers
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");    
                     //Assign Role to user Here       
                     await this.UserManager.AddToRoleAsync(user.Id, model.UserRoles);
-
                     //Ends Here  
                     if( model.UserRoles == "Customer")
                     {
