@@ -144,6 +144,7 @@ namespace EventFinder_GC.Controllers
         {
             ViewBag.Name = new SelectList(context.Roles.Where(u => !u.Name.Contains("Admin"))
                                                 .ToList(), "Name", "Name");
+            
             return View();
         }
 
@@ -175,6 +176,10 @@ namespace EventFinder_GC.Controllers
                     {
                         return RedirectToAction("Create", "Addresses");
                     } else
+<<<<<<< HEAD
+=======
+
+>>>>>>> 194c49b78ed37075ef6eb9cd12829944ff91b737
                     {
                         return RedirectToAction("Index", "Hosts");
                     }

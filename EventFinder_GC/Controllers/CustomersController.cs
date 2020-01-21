@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using EventFinder_GC.Models;
+using Microsoft.AspNet.Identity;
 
 namespace EventFinder_GC.Controllers
 {
@@ -39,8 +40,6 @@ namespace EventFinder_GC.Controllers
         // GET: Customers/Create
         public ActionResult Create()
         {
-            ViewBag.AddressId = new SelectList(db.Addresses, "AddressId", "Street");
-            ViewBag.ApplicationId = new SelectList(db.Users, "Id", "Email");
             return View();
         }
 
@@ -53,6 +52,12 @@ namespace EventFinder_GC.Controllers
         {
             if (ModelState.IsValid)
             {
+                string userId = User.Identity.GetUserId();
+                customer.ApplicationId = userId;
+
+                //must cast to int as session represents object prior to typecasting
+                customer.AddressId = (int)Session["AddressId"];
+
                 db.Customers.Add(customer);
                 db.SaveChanges();
                 return RedirectToAction("Index", "Customers");
