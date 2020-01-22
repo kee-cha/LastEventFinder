@@ -13,6 +13,9 @@ namespace EventFinder_GC.Models
         public int CustomerId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
+
+        public List<string> interest;
+
         [ForeignKey("Address")]
         public int AddressId { get; set; }
         public Address Address { get; set; }
