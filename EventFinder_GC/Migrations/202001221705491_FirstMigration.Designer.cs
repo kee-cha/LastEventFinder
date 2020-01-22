@@ -7,13 +7,13 @@ namespace EventFinder_GC.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class addNewMigration : IMigrationMetadata
+    public sealed partial class FirstMigration : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(addNewMigration));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(FirstMigration));
         
         string IMigrationMetadata.Id
         {
-            get { return "202001220149185_addNewMigration"; }
+            get { return "202001221705491_FirstMigration"; }
         }
         
         string IMigrationMetadata.Source
