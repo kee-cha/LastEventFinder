@@ -7,13 +7,13 @@ namespace EventFinderAPI.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class finishSeedingEventTable : IMigrationMetadata
+    public sealed partial class InitialTabel : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(finishSeedingEventTable));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialTabel));
         
         string IMigrationMetadata.Id
         {
-            get { return "202001220138058_finishSeedingEventTable"; }
+            get { return "202001221620298_InitialTabel"; }
         }
         
         string IMigrationMetadata.Source

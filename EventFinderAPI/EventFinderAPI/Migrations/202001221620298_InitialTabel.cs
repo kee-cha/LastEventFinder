@@ -3,7 +3,7 @@ namespace EventFinderAPI.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class SeedEventTable : DbMigration
+    public partial class InitialTabel : DbMigration
     {
         public override void Up()
         {
