@@ -28,18 +28,18 @@ namespace EventFinderAPI.Migrations
                 State = "WI",
                 ZipCode = "53203"
             },
-                new Models.Events
-                {
-                    EventName = "Ginuwine",
-                    Date = "Feb,13,2020",
-                    Category = "Music",
-                    SubCategory = "r&b",
-                    VenueName = "The Northern Lights Theater",
-                    Street = "1721 W Canal St, Milwaukee, WI",
-                    City = "Milwuakee",
-                    State = "WI",
-                    ZipCode = "53233"
-                },
+            new Models.Events
+            {
+                EventName = "Ginuwine",
+                Date = "Feb,13,2020",
+                Category = "Music",
+                SubCategory = "r&b",
+                VenueName = "The Northern Lights Theater",
+                Street = "1721 W Canal St, Milwaukee, WI",
+                City = "Milwuakee",
+                State = "WI",
+                ZipCode = "53233"
+            },
             new Models.Events
             {
                 EventName = "The Millennium Tour: Omarion",

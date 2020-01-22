@@ -270,13 +270,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202001212015290_InitialMigration.cs" />
-    <Compile Include="Migrations\202001212015290_InitialMigration.Designer.cs">
-      <DependentUpon>202001212015290_InitialMigration.cs</DependentUpon>
+    <Compile Include="Migrations\202001220150518_SeedEventTable.cs" />
+    <Compile Include="Migrations\202001220150518_SeedEventTable.Designer.cs">
+      <DependentUpon>202001220150518_SeedEventTable.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202001212200111_addAddressIntoEventAPIModel.cs" />
-    <Compile Include="Migrations\202001212200111_addAddressIntoEventAPIModel.Designer.cs">
-      <DependentUpon>202001212200111_addAddressIntoEventAPIModel.cs</DependentUpon>
+    <Compile Include="Migrations\202001220154398_reseedTable.cs" />
+    <Compile Include="Migrations\202001220154398_reseedTable.Designer.cs">
+      <DependentUpon>202001220154398_reseedTable.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
@@ -382,11 +382,11 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202001212015290_InitialMigration.resx">
-      <DependentUpon>202001212015290_InitialMigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202001220150518_SeedEventTable.resx">
+      <DependentUpon>202001220150518_SeedEventTable.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001212200111_addAddressIntoEventAPIModel.resx">
-      <DependentUpon>202001212200111_addAddressIntoEventAPIModel.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202001220154398_reseedTable.resx">
+      <DependentUpon>202001220154398_reseedTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
