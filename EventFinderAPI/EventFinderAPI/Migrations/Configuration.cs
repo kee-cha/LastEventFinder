@@ -19,7 +19,7 @@ namespace EventFinderAPI.Migrations
             new Models.Events
             {
                 EventName = "The 90's Kickback Concert Part 2",
-                Date = "Feb,26,2020",
+                Date = "02/26/2020",
                 Category = "Music",
                 SubCategory = "r&b",
                 VenueName = "Miller High Life Theatre",
@@ -31,7 +31,7 @@ namespace EventFinderAPI.Migrations
             new Models.Events
             {
                 EventName = "Ginuwine",
-                Date = "Feb,13,2020",
+                Date = "02/13/2020",
                 Category = "Music",
                 SubCategory = "r&b",
                 VenueName = "The Northern Lights Theater",
@@ -43,7 +43,7 @@ namespace EventFinderAPI.Migrations
             new Models.Events
             {
                 EventName = "The Millennium Tour: Omarion",
-                Date = "Feb,26,2020",
+                Date = "02/26/2020",
                 Category = "Music",
                 SubCategory = "r&b",
                 VenueName = "UW-Milwaukee Panther Arena",
@@ -56,7 +56,7 @@ namespace EventFinderAPI.Migrations
             new Models.Events
             {
                 EventName = "JJ Grey & Mofro",
-                Date = "Feb,8,2020",
+                Date = "02/08/2020",
                 Category = "Music",
                 SubCategory = "r&b",
                 VenueName = "Turner Hall Ballroom",
@@ -68,7 +68,7 @@ namespace EventFinderAPI.Migrations
             new Models.Events
             {
                 EventName = "Prince Royce",
-                Date = "April,10,2020",
+                Date = "04/10/2020",
                 Category = "Music",
                 SubCategory = "r&b",
                 VenueName = "The Rave",
@@ -81,7 +81,7 @@ namespace EventFinderAPI.Migrations
             new Models.Events
             {
                 EventName = "The Lumineers",
-                Date = "March,11,2020",
+                Date = "03/11/2020",
                 Category = "Music",
                 SubCategory = "rock",
                 VenueName = "FiserV Forum",
@@ -93,7 +93,7 @@ namespace EventFinderAPI.Migrations
             new Models.Events
             {
                 EventName = "The Lumineers",
-                Date = "March,11,2020",
+                Date = "03/11/2020",
                 Category = "Music",
                 SubCategory = "rock",
                 VenueName = "FiserV Forum",
@@ -105,7 +105,7 @@ namespace EventFinderAPI.Migrations
             new Models.Events
             {
                 EventName = "Ozzy Osbourne & Marilyn Manson",
-                Date = "July,1,2020",
+                Date = "07/01/2020",
                 Category = "Music",
                 SubCategory = "rock",
                 VenueName = "American Family Insurance Amphitheater",
@@ -117,7 +117,7 @@ namespace EventFinderAPI.Migrations
             new Models.Events
             {
                 EventName = "Alter Bridge live in concert",
-                Date = "Febuary,15,2020",
+                Date = "02/15/2020",
                 Category = "Music",
                 SubCategory = "rock",
                 VenueName = "The Rave",
@@ -129,7 +129,7 @@ namespace EventFinderAPI.Migrations
             new Models.Events
             {
                 EventName = "Elton John",
-                Date = "Febuary,15,2020",
+                Date = "02/15/2020",
                 Category = "Music",
                 SubCategory = "rock",
                 VenueName = "Fiserv Forum",
@@ -165,7 +165,7 @@ namespace EventFinderAPI.Migrations
             new Models.Events
             {
                 EventName = "Cooking Class: Dietary Cooking",
-                Date = "March,25,2020",
+                Date = "03/25/2020",
                 Category = "Food",
                 SubCategory = "class",
                 VenueName = "UWM Student Union, 3rd Floor, Room 348",
@@ -177,7 +177,7 @@ namespace EventFinderAPI.Migrations
             new Models.Events
             {
                 EventName = "Cooking Class: Cookies + Decorating",
-                Date = "Febuary,26,2020",
+                Date = "02/26/2020",
                 Category = "Food",
                 SubCategory = "class",
                 VenueName = "UWM Student Union, 3rd Floor, Room 348",
@@ -189,7 +189,7 @@ namespace EventFinderAPI.Migrations
             new Models.Events
             {
                 EventName = "Cooking Class: Roast Chicken",
-                Date = "January,29,2020",
+                Date = "01/29/2020",
                 Category = "Food",
                 SubCategory = "class",
                 VenueName = "UWM Student Union, 3rd Floor, Room 348",
