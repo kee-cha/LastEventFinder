@@ -4,10 +4,13 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using EventFinder_GC.Models;
 using Microsoft.AspNet.Identity;
+using Newtonsoft.Json;
 
 namespace EventFinder_GC.Controllers
 {
@@ -16,10 +19,22 @@ namespace EventFinder_GC.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Customers
-        public ActionResult Index()
+        public async Task<ActionResult> Index()
         {
-            var customers = db.Customers.Include(c => c.Address).Include(c => c.ApplicationUser);
-            return View(customers.ToList());
+            HttpClient client = new HttpClient();
+            string url = "https://localhost:44355/api/Events";
+            HttpResponseMessage response = await client.GetAsync(url);
+            string jsonResult = await response.Content.ReadAsStringAsync();
+            if (response.IsSuccessStatusCode) {
+                //deserialize response 
+                EventApi[] events = JsonConvert.DeserializeObject<EventApi[]>(jsonResult);
+                //pass deserialized response as object to view, then change model in view from customer
+                return View(events);
+            } else
+            {
+                //this should realistically never happen
+                return View();
+            }
         }
 
         // GET: Customers/Details/5
