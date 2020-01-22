@@ -3,7 +3,7 @@ namespace EventFinder_GC.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class addNewMigration : DbMigration
+    public partial class FirstMigration : DbMigration
     {
         public override void Up()
         {
