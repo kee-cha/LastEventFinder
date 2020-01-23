@@ -1,51 +1,138 @@
-﻿@model IEnumerable<EventFinder_GC.Models.Customer>
+﻿@model IEnumerable< EventFinder_GC.Models.EventApi>
 
 @{
     ViewBag.Title = "Index";
+    //<img src=${event.ImageURL}>
 }
 
 <h2>Index</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("See All Events", "Index", new {seeAllEvents = true })
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Address.Street)
+            @Html.DisplayNameFor(model => model.EventId)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ApplicationUser.Email)
+            @Html.DisplayNameFor(model => model.EventName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.FirstName)
+            @Html.DisplayNameFor(model => model.VenueName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.LastName)
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Category)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SubCategory)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Street)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.City)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.State)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ZipCode)
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+    @foreach (var item in Model)
+    {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Address.Street)
+            @Html.DisplayFor(modelItem => item.EventId)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ApplicationUser.Email)
+            @Html.DisplayFor(modelItem => item.EventName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.FirstName)
+            @Html.DisplayFor(modelItem => item.VenueName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.LastName)
+            @Html.DisplayFor(modelItem => item.Date)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.CustomerId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.CustomerId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.CustomerId })
+            @Html.DisplayFor(modelItem => item.Category)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SubCategory)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Street)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.City)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.State)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ZipCode)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.EventId }) |
+            @Html.ActionLink("Details", "Details", new { id = item.EventId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.EventId })
         </td>
     </tr>
-}
-
+    }
 </table>
+
+
+<h2>Events List:</h2>
+<ul id="events"></ul>
+
+<button onclick="GetButtonNoParams()" id="Get">Get</button>
+
+@section Scripts
+{
+    <script type="text/javascript">
+
+        var $eventsList = $('#events');
+
+        function addEvent(event) {
+            $eventsList.append(`<li id = ${event.EventId}><strong>Event Name</strong>: ${event.EventName}
+                                                      <br><strong>Venue Name</strong>: ${event.VenueName}
+                                                      <br><strong>Date</strong>: ${event.Date}
+                                                      <br><strong>Category</strong>: ${event.Category}
+                                                      <br><strong>SubCategory</strong>: ${event.SubCategory}
+                                                      <br><strong>Street</strong>: ${event.Street}
+                                                      <br><strong>City</strong>: ${event.City}
+                                                      <br><strong>State</strong>: ${event.State}
+                                                      <br><strong>ZipCode</strong>: ${event.ZipCode}</li><br> `);
+
+
+        }
+        
+
+        function GetButtonNoParams() {
+            $(function () {
+                $.ajax({
+                    type: 'GET',
+                    url: 'https://localhost:44355/api/Events',
+                    success: function (events) {
+                        $.each(events, function (i, event) { //goes through array of data and manipulates each item
+                            addEvent(event);
+                            
+
+                        });
+                    },
+                    error: function () {
+                        alert('error loading events');
+                    }
+                });
+            });
+        }
+
+    </script>
+}

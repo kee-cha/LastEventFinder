@@ -4,7 +4,7 @@
    }
 body{
     margin:0 auto;
-    width:70%;
+    width:100%;
 }
 .slider{
     overflow:hidden;
@@ -23,7 +23,7 @@ body{
     width:500%;
     margin:0px;
     left:0;
-    animation: 20s ravi infinite;
+    animation: 40s ravi infinite;
     }
   @keyframes ravi{
     0%{
@@ -74,4 +74,12 @@ body{
     94%{
       left: 0%;
     }
+}
+.s-m-bar {
+    font-size:30px;
+    top: 80%;
+    width: 30px;
+    text-align:left;
+    display:inline;
+  padding-left:35px;
 }

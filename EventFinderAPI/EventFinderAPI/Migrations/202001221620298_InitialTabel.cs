@@ -3,10 +3,31 @@ namespace EventFinderAPI.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialMigration : DbMigration
+<<<<<<< HEAD:EventFinderAPI/EventFinderAPI/Migrations/202001222220533_newMigration.cs
+    public partial class newMigration : DbMigration
+=======
+    public partial class InitialTabel : DbMigration
+>>>>>>> 76254ba1ee65f4d06621ec14fbe5d9be7787eb70:EventFinderAPI/EventFinderAPI/Migrations/202001221620298_InitialTabel.cs
     {
         public override void Up()
         {
+            CreateTable(
+                "dbo.Events",
+                c => new
+                    {
+                        EventId = c.Int(nullable: false, identity: true),
+                        EventName = c.String(),
+                        VenueName = c.String(),
+                        Date = c.String(),
+                        Category = c.String(),
+                        SubCategory = c.String(),
+                        Street = c.String(),
+                        City = c.String(),
+                        State = c.String(),
+                        ZipCode = c.String(),
+                    })
+                .PrimaryKey(t => t.EventId);
+            
             CreateTable(
                 "dbo.AspNetRoles",
                 c => new
@@ -94,6 +115,7 @@ namespace EventFinderAPI.Migrations
             DropTable("dbo.AspNetUsers");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetRoles");
+            DropTable("dbo.Events");
         }
     }
 }

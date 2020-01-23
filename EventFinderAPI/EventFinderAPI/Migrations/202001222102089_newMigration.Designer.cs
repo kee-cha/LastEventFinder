@@ -7,13 +7,13 @@ namespace EventFinderAPI.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class addAddressIntoEventAPIModel : IMigrationMetadata
+    public sealed partial class newMigration : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(addAddressIntoEventAPIModel));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(newMigration));
         
         string IMigrationMetadata.Id
         {
-            get { return "202001212200111_addAddressIntoEventAPIModel"; }
+            get { return "202001222102089_newMigration"; }
         }
         
         string IMigrationMetadata.Source
