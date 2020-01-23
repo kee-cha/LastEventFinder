@@ -13,8 +13,12 @@ namespace EventFinder_GC.Models
         public int CustomerId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public bool ArtInterest { get; set; }
+        public bool SportInterest { get; set; }
+        public bool FoodInterest { get; set; }
+        public bool MusicInterest { get; set; }
+        public bool TechInterest { get; set; }
 
-        public List<string> interest;
 
         [ForeignKey("Address")]
         public int AddressId { get; set; }

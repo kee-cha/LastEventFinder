@@ -12,6 +12,7 @@
 </head>
 
 <body>
+<<<<<<< HEAD
            <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
@@ -43,6 +44,36 @@
 
                 </div>
 
+=======
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Event_Milwaukee_2020", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    @if (User.IsInRole("Customer") == true)
+                    {
+                    <li>@Html.ActionLink("Customer Home", "Index", "Customers")</li>
+                    }
+                    else
+                    {
+                    <li>@Html.ActionLink("Host Home", "Index", "Hosts")</li>
+                    <li>@Html.ActionLink("Hosted Events", "Create", "Hosts")</li>
+                    }
+
+
+                </ul>
+
+                @Html.Partial("_LoginPartial")
+>>>>>>> 76254ba1ee65f4d06621ec14fbe5d9be7787eb70
             </div>
 
         </div>

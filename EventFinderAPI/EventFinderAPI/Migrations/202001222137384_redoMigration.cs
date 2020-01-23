@@ -3,11 +3,7 @@ namespace EventFinderAPI.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-<<<<<<< HEAD:EventFinderAPI/EventFinderAPI/Migrations/202001222220533_newMigration.cs
-    public partial class newMigration : DbMigration
-=======
-    public partial class InitialTabel : DbMigration
->>>>>>> 76254ba1ee65f4d06621ec14fbe5d9be7787eb70:EventFinderAPI/EventFinderAPI/Migrations/202001221620298_InitialTabel.cs
+    public partial class redoMigration : DbMigration
     {
         public override void Up()
         {

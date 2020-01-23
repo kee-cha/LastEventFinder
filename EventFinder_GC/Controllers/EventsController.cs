@@ -39,9 +39,8 @@ namespace EventFinder_GC.Controllers
         // GET: Events/Create
         public ActionResult Create()
         {
-            ViewBag.AddressId = new SelectList(db.Addresses, "AddressId", "Street");
-            ViewBag.HostId = new SelectList(db.Hosts, "HostId", "FirstName");
-            return View();
+            Event @event = new Event();
+            return View(@event);
         }
 
         // POST: Events/Create
