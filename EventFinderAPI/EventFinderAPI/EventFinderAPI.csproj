@@ -270,13 +270,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202001221620298_InitialTabel.cs" />
-    <Compile Include="Migrations\202001221620298_InitialTabel.Designer.cs">
-      <DependentUpon>202001221620298_InitialTabel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202001221634124_SeedingEvents.cs" />
-    <Compile Include="Migrations\202001221634124_SeedingEvents.Designer.cs">
-      <DependentUpon>202001221634124_SeedingEvents.cs</DependentUpon>
+    <Compile Include="Migrations\202001222137384_redoMigration.cs" />
+    <Compile Include="Migrations\202001222137384_redoMigration.Designer.cs">
+      <DependentUpon>202001222137384_redoMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
@@ -382,11 +378,8 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202001221620298_InitialTabel.resx">
-      <DependentUpon>202001221620298_InitialTabel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001221634124_SeedingEvents.resx">
-      <DependentUpon>202001221634124_SeedingEvents.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202001222137384_redoMigration.resx">
+      <DependentUpon>202001222137384_redoMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

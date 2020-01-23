@@ -4,10 +4,13 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using EventFinder_GC.Models;
 using Microsoft.AspNet.Identity;
+using Newtonsoft.Json;
 
 namespace EventFinder_GC.Controllers
 {
@@ -35,6 +38,32 @@ namespace EventFinder_GC.Controllers
                 return HttpNotFound();
             }
             return View(host);
+        }
+
+        public ActionResult CreateEvent()
+        {
+            EventApi @event = new EventApi();
+            return View();
+        }
+        [HttpPost]
+        public ActionResult CreateEvent(int id, EventApi @event){
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("https://localhost:44355/api/Events");
+                string json = JsonConvert.SerializeObject(@event);
+                var content = new StringContent(json, Encoding.UTF8,"Application/json");
+                var postTask = client.PostAsync("Events", content);
+                postTask.Wait();
+
+                var result = postTask.Result;
+                if (result.IsSuccessStatusCode)
+                {
+                    return RedirectToAction("Index","Customers");
+                }
+            }
+            ModelState.AddModelError(string.Empty, "Server Error. Please contact administrator.");
+            return View(@event);
         }
 
         // GET: Hosts/Create

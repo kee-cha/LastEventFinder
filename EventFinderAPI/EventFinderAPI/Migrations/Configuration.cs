@@ -17,18 +17,18 @@ namespace EventFinderAPI.Migrations
             //  This method will be called after migrating to the latest version.
             context.Events.AddOrUpdate(
 
-                new Models.Events
-                {
-                    EventName = "The 90's Kickback Concert Part 2",
-                    Date = "02/26/2020",
-                    Category = "Music",
-                    SubCategory = "r&b",
-                    VenueName = "Miller High Life Theatre",
-                    Street = "500 W Kilbourn Ave, Milwaukee, WI",
-                    City = "Milwuakee",
-                    State = "WI",
-                    ZipCode = "53203"
-                },
+            new Models.Events
+            {
+                EventName = "The 90's Kickback Concert Part 2",
+                Date = "02/26/2020",
+                Category = "Music",
+                SubCategory = "r&b",
+                VenueName = "Miller High Life Theatre",
+                Street = "500 W Kilbourn Ave, Milwaukee, WI",
+                City = "Milwuakee",
+                State = "WI",
+                ZipCode = "53203"
+            },
             new Models.Events
             {
                 EventName = "Ginuwine",
@@ -140,7 +140,7 @@ namespace EventFinderAPI.Migrations
             new Models.Events
             {
                 EventName = "Florentine @ Estabrook Beer Garden (free)",
-                Date = "Febuary,23,2020",
+                Date = "02/23/2020",
                 Category = "Food",
                 SubCategory = "beer garden",
                 VenueName = "Estabrook Beer Garden",
@@ -152,7 +152,7 @@ namespace EventFinderAPI.Migrations
             new Models.Events
             {
                 EventName = "Cooking Class for Young Survivors",
-                Date = "January,25,2020",
+                Date = "01/25/2020",
                 Category = "Food",
                 SubCategory = "class",
                 VenueName = "Boelter Event Center",
@@ -200,7 +200,7 @@ namespace EventFinderAPI.Migrations
             new Models.Events
             {
                 EventName = "Wine Tasting with the Winemaker: Chasing Harvest",
-                Date = "February,04,2020",
+                Date = "02/4/2020",
                 Category = "Food",
                 SubCategory = "wine tasting",
                 VenueName = "Vino Third Ward - Wine Bar & Store",
@@ -209,19 +209,19 @@ namespace EventFinderAPI.Migrations
                 State = "WI",
                 ZipCode = "53211"
             },
-                    new Models.Events
-                    {
-                        EventName = "Big Cheese Quad Rugby Tournament",
-                        Date = "Febuary,15,2020",
-                        Category = "Sports",
-                        SubCategory = "Rugby",
-                        VenueName = "South Division High School",
-                        Street = "1515 W Lapham Blvd",
-                        City = "Milwaukee",
-                        State = "WI",
-                        ZipCode = "53204",
+            new Models.Events
+            {
+                EventName = "Big Cheese Quad Rugby Tournament",
+                Date = "Febuary,15,2020",
+                Category = "Sports",
+                SubCategory = "Rugby",
+                VenueName = "South Division High School",
+                Street = "1515 W Lapham Blvd",
+                City = "Milwaukee",
+                State = "WI",
+                ZipCode = "53204",
 
-                    },
+            },
                     new Models.Events
 
                     {
@@ -300,18 +300,18 @@ namespace EventFinderAPI.Migrations
 
                     {
                         EventName = "Wright State Raiders Mens Basketball",
-                         Date = "  Febuary,1,2020",
-                         Category = "Sports",
-                         SubCategory = "BasketBall",
-                         VenueName = "University of Wisconsin-Milwaukee",
-                         Street = "400 W Kilbourn Ave",
-                         City = "Milwaukee",
-                         State = "WI",
-                         ZipCode = "53203"
+                        Date = "  Febuary,1,2020",
+                        Category = "Sports",
+                        SubCategory = "BasketBall",
+                        VenueName = "University of Wisconsin-Milwaukee",
+                        Street = "400 W Kilbourn Ave",
+                        City = "Milwaukee",
+                        State = "WI",
+                        ZipCode = "53203"
 
-                     },
+                    },
                     new Models.Events
-                    
+
                     {
                         EventName = "FUJI BJJ Milwaukee Open",
                         Date = "  Febuary,22,2020",
@@ -422,33 +422,19 @@ namespace EventFinderAPI.Migrations
                         ZipCode = "53295"
 
                     },
-                    new Models.Events
-
-                    {
-                        EventName = "Indoor Mural Competition",
-                        Date = "  January,24,2020",
-                        Category = "Art",
-                        SubCategory = "Competition",
-                        VenueName = "The Branch ",
+            new Models.Events
+            {
+                EventName = "Indoor Mural Competition",
+                Date = "  January,24,2020",
+                Category = "Art",
+                SubCategory = "Competition",
+                VenueName = "The Branch ",
                         Street = "1501 Washington Ave",
                         City = "Racine",
                         State = "WI",
                         ZipCode = "53403"
 
-                    }
-
-
-
-
-
-
-
-
-
-
-
-
-
+            }
             );
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data.

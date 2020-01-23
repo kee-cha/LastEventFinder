@@ -19,22 +19,44 @@ namespace EventFinder_GC.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Customers
-        public async Task<ActionResult> Index()
+        public async Task<ActionResult> Index(bool? seeAllEvents)
         {
+            var id = User.Identity.GetUserId();
+            Customer customer = db.Customers.Where(c => c.ApplicationId == id).SingleOrDefault();
             HttpClient client = new HttpClient();
             string url = "https://localhost:44355/api/Events";
             HttpResponseMessage response = await client.GetAsync(url);
             string jsonResult = await response.Content.ReadAsStringAsync();
-            if (response.IsSuccessStatusCode) {
+            if (response.IsSuccessStatusCode)
+            {
                 //deserialize response 
                 EventApi[] events = JsonConvert.DeserializeObject<EventApi[]>(jsonResult);
+                if (seeAllEvents != true)
+                {
+                    events = FilterByInterest(events, customer).ToArray();
+                }
+
                 //pass deserialized response as object to view, then change model in view from customer
                 return View(events);
-            } else
+            }
+            else
             {
                 //this should realistically never happen
                 return View();
             }
+        }
+
+        public List<EventApi> FilterByInterest(EventApi[] events, Customer customer)
+        {
+            List<EventApi> filteredEvents = new List<EventApi>();
+            foreach (var item in events)
+            {
+                if (customer.ArtInterest == true && item.Category == "Art" || customer.FoodInterest == true && item.Category == "Food" || customer.MusicInterest == true && item.Category == "Music" || customer.SportInterest == true && item.Category == "Sport" || customer.TechInterest == true && item.Category == "Tech")
+                {
+                    filteredEvents.Add(item);
+                }
+            }
+            return filteredEvents;
         }
 
         // GET: Customers/Details/5
@@ -63,7 +85,7 @@ namespace EventFinder_GC.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CustomerId,FirstName,LastName,AddressId,ApplicationId")] Customer customer)
+        public ActionResult Create(Customer customer)
         {
             if (ModelState.IsValid)
             {

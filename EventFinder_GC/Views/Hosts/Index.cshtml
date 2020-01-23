@@ -35,11 +35,13 @@
             @Html.DisplayFor(modelItem => item.LastName)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.HostId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.HostId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.HostId })
+            @Html.ActionLink("Edit", "Edit", new { id = item.HostId }) |
+            @Html.ActionLink("Details", "Details", new { id = item.HostId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.HostId }) |
+            @Html.ActionLink("Create New Event", "CreateEvent", "Hosts", new { id = item.HostId },"")
         </td>
     </tr>
 }
 
 </table>
+
