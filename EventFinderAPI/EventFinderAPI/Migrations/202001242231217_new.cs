@@ -3,7 +3,7 @@ namespace EventFinderAPI.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Init : DbMigration
+    public partial class _new : DbMigration
     {
         public override void Up()
         {
@@ -23,6 +23,7 @@ namespace EventFinderAPI.Migrations
                         ZipCode = c.String(),
                         HostId = c.Int(),
                         Rating = c.Double(),
+                        ImagePath = c.String(),
                     })
                 .PrimaryKey(t => t.EventId);
             
