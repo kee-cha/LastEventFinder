@@ -20,6 +20,8 @@ namespace EventFinder_GC.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public DbSet<CustomerEvent> CustomerEvents{ get; set; }
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {

@@ -1,0 +1,35 @@
+﻿@model EventFinder_GC.Models.CustomerEvent
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CustomerEvent</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Customer.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Customer.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Event.EventName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Event.EventName)
+        </dd>
+
+    </dl>
+</div>
+<input type="button" value="Create" onclick="location.href='@Url.Action("Create", "CustomerEvents")'" />
+<p>
+    @Html.ActionLink("Edit", "Edit", new {  id = Model.CustomerId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

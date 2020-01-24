@@ -37,8 +37,49 @@ namespace EventFinder_GC.Controllers
             }
         }
 
-        // GET: Customers/Details/5
-        public ActionResult Details(int? id)
+        public async Task<ActionResult> FilterByCatAsync(string subCategory)
+        {
+            HttpClient client = new HttpClient();
+            string url = "https://localhost:44355/api/Events";
+            HttpResponseMessage response = await client.GetAsync(url);
+            string jsonResult = await response.Content.ReadAsStringAsync();
+            if (response.IsSuccessStatusCode)
+            {
+                //deserialize response 
+                EventApi[] events = JsonConvert.DeserializeObject<EventApi[]>(jsonResult);
+                //pass deserialized response as object to view, then change model in view from customer
+                var newEvents = events.Where(e => e.SubCategory == subCategory);
+                return View("Index", newEvents);
+            }
+            else
+            {
+                //this should realistically never happen
+                return View();
+            }
+            
+        }
+        public async Task<ActionResult> FilterZipAsync(string zipCode)
+        {
+            HttpClient client = new HttpClient();
+            string url = "https://localhost:44355/api/Events";
+            HttpResponseMessage response = await client.GetAsync(url);
+            string jsonResult = await response.Content.ReadAsStringAsync();
+            if (response.IsSuccessStatusCode)
+            {
+                //deserialize response 
+                EventApi[] events = JsonConvert.DeserializeObject<EventApi[]>(jsonResult);
+                //pass deserialized response as object to view, then change model in view from customer
+                var newEvents = events.Where(e => e.ZipCode == zipCode);
+                return View("Index", newEvents);
+            }
+            else
+            {
+                //this should realistically never happen
+                return View();
+            }
+        }
+            // GET: Customers/Details/5
+            public ActionResult Details(int? id)
         {
             if (id == null)
             {

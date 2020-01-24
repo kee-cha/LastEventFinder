@@ -278,6 +278,10 @@
     <Compile Include="Migrations\202001221634124_SeedingEvents.Designer.cs">
       <DependentUpon>202001221634124_SeedingEvents.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202001241959023_model.cs" />
+    <Compile Include="Migrations\202001241959023_model.Designer.cs">
+      <DependentUpon>202001241959023_model.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -387,6 +391,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202001221634124_SeedingEvents.resx">
       <DependentUpon>202001221634124_SeedingEvents.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001241959023_model.resx">
+      <DependentUpon>202001241959023_model.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
