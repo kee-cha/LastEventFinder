@@ -7,13 +7,13 @@ namespace EventFinderAPI.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class addNewPropToEvent : IMigrationMetadata
+    public sealed partial class BryceMigration : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(addNewPropToEvent));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(BryceMigration));
         
         string IMigrationMetadata.Id
         {
-            get { return "202001231621083_addNewPropToEvent"; }
+            get { return "202001231933526_BryceMigration"; }
         }
         
         string IMigrationMetadata.Source

@@ -3,7 +3,7 @@ namespace EventFinderAPI.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class SeedingEvents : DbMigration
+    public partial class BryceMigration : DbMigration
     {
         public override void Up()
         {

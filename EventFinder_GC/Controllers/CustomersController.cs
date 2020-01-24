@@ -60,18 +60,65 @@ namespace EventFinder_GC.Controllers
         }
 
         // GET: Customers/Details/5
-        public ActionResult Details(int? id)
+        public async Task<ActionResult> Details(int? id)
         {
+            Host eventHost = new Host();
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Customer customer = db.Customers.Find(id);
-            if (customer == null)
+
+            EventApi singleEvent = new EventApi();
+            double? rating = 0;
+            double count = 0;
+
+            HttpClient client = new HttpClient();
+            string url = "https://localhost:44355/api/Events";
+            HttpResponseMessage response = await client.GetAsync(url);
+            string jsonResult = await response.Content.ReadAsStringAsync();
+            if (response.IsSuccessStatusCode)
+            {
+                EventApi[] events = JsonConvert.DeserializeObject<EventApi[]>(jsonResult);
+                foreach (var item in events)
+                {
+                    if (item.EventId == id)
+                    {
+                        singleEvent = item;
+                        eventHost = db.Hosts.Where(h => h.HostId == singleEvent.HostId).FirstOrDefault();
+                    }
+                }
+
+                foreach (var item in events)
+                {
+                    //pull all categories from events list where category = event category of singleEvent and has host id of eventHost
+                    if((item.Category == singleEvent.Category) && (item.HostId == singleEvent.HostId))
+                    {
+                        count++;
+                        rating += item.Rating;
+                    }
+                }
+
+                double? avgRating = rating / count; //get average rating
+                //viewbag the event host full name 
+                ViewBag.EventHostName = eventHost.FirstName + " " + eventHost.LastName;
+                ViewBag.HostRatingByCategory = avgRating;
+            }
+
+
+
+
+
+            //filter through events where events id matches passed id
+
+            if (singleEvent == null)
             {
                 return HttpNotFound();
             }
-            return View(customer);
+
+            return View(singleEvent);
+
+            //return the view of a single event, not list of events Friendly PSA 
         }
 
         // GET: Customers/Create

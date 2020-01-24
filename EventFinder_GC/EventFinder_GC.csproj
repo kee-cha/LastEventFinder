@@ -178,6 +178,15 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Migrations\202001231925521_BryceMigration.cs" />
+    <Compile Include="Migrations\202001231925521_BryceMigration.Designer.cs">
+      <DependentUpon>202001231925521_BryceMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001241507247_ChangedDataTypes.cs" />
+    <Compile Include="Migrations\202001241507247_ChangedDataTypes.Designer.cs">
+      <DependentUpon>202001241507247_ChangedDataTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\EventAPIClass.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AddressesController.cs" />
@@ -211,12 +220,17 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="homeimg.jpg" />
+    <Content Include="image\Art.jpg" />
+    <Content Include="image\Food.jpg" />
     <Content Include="image\homeimg.jpg" />
     <Content Include="image\image1.jpg" />
     <Content Include="image\image2.jpg" />
     <Content Include="image\image4.jpg" />
     <Content Include="image\image5.jpg" />
     <Content Include="image\mke365-logo.png" />
+    <Content Include="image\Music.jpg" />
+    <Content Include="image\Sports.jpg" />
+    <Content Include="image\Tech.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
@@ -302,6 +316,14 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202001231925521_BryceMigration.resx">
+      <DependentUpon>202001231925521_BryceMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001241507247_ChangedDataTypes.resx">
+      <DependentUpon>202001241507247_ChangedDataTypes.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
