@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "PayPalView";
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <h2>ValidateCommand</h2>
+    <div>
+        <table>
+            <tr>
+                <td>
+                   Event Name:
+                </td>
+                <td>
+                    <input type="text" name="EventName" value="Visual Studio 2019" readonly />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Total Price:
+                </td>
+                <td>
+                    $<input type="text" name="totalPrice" value="14800" readonly />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                    <input type="submit" name="btnConfirm" value="Check Out with Paypal" />
+                </td>
+            </tr>
+        </table>
+    </div>
+}
+

@@ -1,0 +1,40 @@
+﻿@model EventFinder_GC.Models.PayPalModel
+@{
+    ViewBag.Title = "ValidateCommand";
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <h2>ValidateCommand</h2>
+    <body>
+        <form id="hiddenform" action=models.actionURL>
+
+            @Html.HiddenFor(model => model.Cmd)
+
+            @Html.HiddenFor(model => model.business)
+
+            @Html.HiddenFor(model => model.no_shipping)
+
+            @Html.HiddenFor(model => model.@return)
+
+            @Html.HiddenFor(model => model.cancel_return)
+
+            @Html.HiddenFor(model => model.notify_url)
+
+            @Html.HiddenFor(model => model.currency_code)
+
+            @Html.HiddenFor(model => model.EventName)
+
+            @Html.HiddenFor(model => model.amount)
+
+        </form>
+
+        <p style=”text-align: center”>
+            <h3>
+                Connecting to Paypal , please wait .....
+
+            </h3>
+        </p>
+    </body>
+}
+
