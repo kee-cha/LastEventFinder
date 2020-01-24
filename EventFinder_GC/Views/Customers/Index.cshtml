@@ -9,7 +9,9 @@
 
 <p>
     @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("See All Events", "Index", new { seeAllEvents = true })
 </p>
+
 
 <div class="btn-group-vertical">
     
@@ -64,7 +66,6 @@
         <div class="dropdown-divider"></div>
         @Html.ActionLink("Wine Tasing", "FilterByCatAsync", new { subCategory = "Wine" })<br />
         <div class="dropdown-divider"></div>
-
 
 
         <div class="dropdown-divider"></div>
@@ -172,41 +173,41 @@
 
     @section Scripts
 {
-        <script type="text/javascript">
 
-            var $eventsList = $('#events');
+    <script type="text/javascript">
 
-            function addEvent(event) {
-                $eventsList.append(`<li id = ${event.EventId}><strong>Event Name</strong>: ${event.EventName}
-                                                                      <br><strong>Venue Name</strong>: ${event.VenueName}
-                                                                      <br><strong>Date</strong>: ${event.Date}
-                                                                      <br><strong>Category</strong>: ${event.Category}
-                                                                      <br><strong>SubCategory</strong>: ${event.SubCategory}
-                                                                      <br><strong>Street</strong>: ${event.Street}
-                                                                      <br><strong>City</strong>: ${event.City}
-                                                                      <br><strong>State</strong>: ${event.State}
-                                                                      <br><strong>ZipCode</strong>: ${event.ZipCode}</li><br> `);
+        var $eventsList = $('#events');
 
-
-            }
+        function addEvent(event) {
+            $eventsList.append(`<li id = ${event.EventId}><strong>Event Name</strong>: ${event.EventName}
+                                                                  <br><strong>Venue Name</strong>: ${event.VenueName}
+                                                                  <br><strong>Date</strong>: ${event.Date}
+                                                                  <br><strong>Category</strong>: ${event.Category}
+                                                                  <br><strong>SubCategory</strong>: ${event.SubCategory}
+                                                                  <br><strong>Street</strong>: ${event.Street}
+                                                                  <br><strong>City</strong>: ${event.City}
+                                                                  <br><strong>State</strong>: ${event.State}
+                                                                  <br><strong>ZipCode</strong>: ${event.ZipCode}</li><br> `);
 
 
-            function GetButtonNoParams() {
-                $(function () {
-                    $.ajax({
-                        type: 'GET',
-                        url: 'https://localhost:44355/api/Events',
-                        success: function (events) {
-                            $.each(events, function (i, event) { //goes through array of data and manipulates each item
-                                addEvent(event);
+        }
 
 
-                            });
-                        },
-                        error: function () {
-                            alert('error loading events');
-                        }
-                    });
+        function GetButtonNoParams() {
+            $(function () {
+                $.ajax({
+                    type: 'GET',
+                    url: 'https://localhost:44355/api/Events',
+                    success: function (events) {
+                        $.each(events, function (i, event) { //goes through array of data and manipulates each item
+                            addEvent(event);
+
+
+                        });
+                    },
+                    error: function () {
+                        alert('error loading events');
+                    }
                 });
             }
 

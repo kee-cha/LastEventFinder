@@ -7,14 +7,13 @@ namespace EventFinderAPI.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-
-    public sealed partial class PostGitmigration : IMigrationMetadata
+    public sealed partial class AddedHostIdAndRating : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(PostGitmigration));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddedHostIdAndRating));
         
         string IMigrationMetadata.Id
         {
-            get { return "202001242033047_PostGitmigration"; }
+            get { return "202001231939063_AddedHostIdAndRating"; }
         }
         
         string IMigrationMetadata.Source

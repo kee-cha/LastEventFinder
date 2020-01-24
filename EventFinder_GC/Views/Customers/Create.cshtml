@@ -6,8 +6,12 @@
 
 <h2>Create</h2>
 
+<<<<<<< HEAD
 
 @using (Html.BeginForm())
+=======
+@using (Html.BeginForm()) 
+>>>>>>> b7ad837b881e235cc03b00bc0b03503131cdd6bc
 {
     @Html.AntiForgeryToken()
 
@@ -32,6 +36,56 @@
         </div>
 
         <div class="form-group">
+            @Html.LabelFor(model => model.ArtInterest, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.ArtInterest)
+                    @Html.ValidationMessageFor(model => model.ArtInterest, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SportInterest, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.SportInterest)
+                    @Html.ValidationMessageFor(model => model.SportInterest, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FoodInterest, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.FoodInterest)
+                    @Html.ValidationMessageFor(model => model.FoodInterest, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MusicInterest, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.MusicInterest)
+                    @Html.ValidationMessageFor(model => model.MusicInterest, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TechInterest, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.TechInterest)
+                    @Html.ValidationMessageFor(model => model.TechInterest, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Create" class="btn btn-default" />
             </div>
@@ -43,7 +97,3 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}

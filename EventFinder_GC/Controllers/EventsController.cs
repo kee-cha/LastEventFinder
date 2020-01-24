@@ -44,9 +44,8 @@ namespace EventFinder_GC.Controllers
         // GET: Events/Create
         public ActionResult Create()
         {
-            ViewBag.AddressId = new SelectList(db.Addresses, "AddressId", "Street");
-            ViewBag.HostId = new SelectList(db.Hosts, "HostId", "FirstName");
-            return View();
+            Event @event = new Event();
+            return View(@event);
         }
 
         // POST: Events/Create
@@ -54,7 +53,7 @@ namespace EventFinder_GC.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "EventId,EventName,VenueName,Date,Category,SubCategory,HostId,AddressId")] Event @event)
+        public ActionResult Create(Event @event)
         {
             if (ModelState.IsValid)
             {

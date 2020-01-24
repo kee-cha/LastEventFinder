@@ -7,13 +7,14 @@ namespace EventFinderAPI.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class SeedingEvents : IMigrationMetadata
+
+    public sealed partial class _new : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(SeedingEvents));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(_new));
         
         string IMigrationMetadata.Id
         {
-            get { return "202001221634124_SeedingEvents"; }
+            get { return "202001241704399_new"; }
         }
         
         string IMigrationMetadata.Source

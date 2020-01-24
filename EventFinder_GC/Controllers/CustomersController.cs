@@ -19,18 +19,27 @@ namespace EventFinder_GC.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Customers
-        public async Task<ActionResult> Index()
+        public async Task<ActionResult> Index(bool? seeAllEvents)
         {
+            var id = User.Identity.GetUserId();
+            Customer customer = db.Customers.Where(c => c.ApplicationId == id).SingleOrDefault();
             HttpClient client = new HttpClient();
             string url = "https://localhost:44355/api/Events";
             HttpResponseMessage response = await client.GetAsync(url);
             string jsonResult = await response.Content.ReadAsStringAsync();
-            if (response.IsSuccessStatusCode) {
+            if (response.IsSuccessStatusCode)
+            {
                 //deserialize response 
                 EventApi[] events = JsonConvert.DeserializeObject<EventApi[]>(jsonResult);
+                if (seeAllEvents != true)
+                {
+                    events = FilterByInterest(events, customer).ToArray();
+                }
+
                 //pass deserialized response as object to view, then change model in view from customer
                 return View(events);
-            } else
+            }
+            else
             {
                 //this should realistically never happen
                 return View();
@@ -78,20 +87,87 @@ namespace EventFinder_GC.Controllers
                 return View();
             }
         }
-            // GET: Customers/Details/5
-            public ActionResult Details(int? id)
+        
+
+        public List<EventApi> FilterByInterest(EventApi[] events, Customer customer)
         {
-            if (id == null)
+            List<EventApi> filteredEvents = new List<EventApi>();
+            foreach (var item in events)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (customer.ArtInterest == true && item.Category == "Art" || customer.FoodInterest == true && item.Category == "Food" || customer.MusicInterest == true && item.Category == "Music" || customer.SportInterest == true && item.Category == "Sport" || customer.TechInterest == true && item.Category == "Tech") 
+                {
+                    filteredEvents.Add(item);
+                }
             }
-            Customer customer = db.Customers.Find(id);
-            if (customer == null)
-            {
-                return HttpNotFound();
-            }
-            return View(customer);
+            return filteredEvents;
         }
+
+        // GET: Customers/Details/5
+        public async Task<ActionResult> Details(int? id)
+        {
+            Host eventHost = new Host();        
+            EventApi singleEvent = new EventApi();
+            double? rating = 0;
+            double count = 0;
+
+            HttpClient client = new HttpClient();
+            string url = "https://localhost:44355/api/Events";
+            HttpResponseMessage response = await client.GetAsync(url);
+            string jsonResult = await response.Content.ReadAsStringAsync();
+            if (response.IsSuccessStatusCode)
+            {
+                EventApi[] events = JsonConvert.DeserializeObject<EventApi[]>(jsonResult);
+                foreach (var item in events)
+                {
+                    if (item.EventId == id)
+                    {
+                        singleEvent = item;
+                        eventHost = db.Hosts.Where(h => h.HostId == singleEvent.HostId).FirstOrDefault();
+                        await GetCoord(singleEvent);
+                    }
+                }
+
+                foreach (var item in events)
+                {
+                    //pull all categories from events list where category = event category of singleEvent and has host id of eventHost
+                    if((item.Category == singleEvent.Category) && (item.HostId == singleEvent.HostId))
+                    {
+                        count++;
+                        rating += item.Rating;
+                    }
+                }
+
+                double? avgRating = rating / count; //get average rating
+                //viewbag the event host full name 
+                ViewBag.EventHostName = eventHost.FirstName + " " + eventHost.LastName;
+                ViewBag.HostRatingByCategory = avgRating;
+            }
+            return View(singleEvent);
+        }
+        public async Task<ActionResult> GetCoord(EventApi singleEvent)
+        {
+            string location = singleEvent.Street + "+" + singleEvent.City + "+" + singleEvent.State + "+" + singleEvent.ZipCode;
+            HttpClient client = new HttpClient();
+            string key = Key.myKey;
+            string url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + location + "&key=" + key;
+            HttpResponseMessage response = await client.GetAsync(url);
+            string result = await response.Content.ReadAsStringAsync();
+            if (response.IsSuccessStatusCode)
+            {
+                GeoModel GeoResult  = JsonConvert.DeserializeObject<GeoModel>(result);
+
+                singleEvent.Latitude = GeoResult.results[0].geometry.location.lat;
+                singleEvent.Longitude = GeoResult.results[0].geometry.location.lng;
+                ViewBag.Key = "https://maps.googleapis.com/maps/api/js?key=" + key + "&callback=initMap";
+                return View(singleEvent);
+            }
+
+            return View(singleEvent);
+            
+   
+        }
+
+
 
         // GET: Customers/Create
         public ActionResult Create()
@@ -104,7 +180,7 @@ namespace EventFinder_GC.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CustomerId,FirstName,LastName,AddressId,ApplicationId")] Customer customer)
+        public ActionResult Create(Customer customer)
         {
             if (ModelState.IsValid)
             {
@@ -146,7 +222,7 @@ namespace EventFinder_GC.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CustomerId,FirstName,LastName,AddressId,ApplicationId")] Customer customer)
+        public ActionResult Edit(Customer customer)
         {
             if (ModelState.IsValid)
             {
@@ -193,5 +269,6 @@ namespace EventFinder_GC.Controllers
             }
             base.Dispose(disposing);
         }
+ 
     }
 }

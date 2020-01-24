@@ -7,13 +7,13 @@ namespace EventFinderAPI.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class InitialTabel : IMigrationMetadata
+    public sealed partial class UpdatedEventsImageManually : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialTabel));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(UpdatedEventsImageManually));
         
         string IMigrationMetadata.Id
         {
-            get { return "202001221620298_InitialTabel"; }
+            get { return "202001232156211_UpdatedEventsImageManually"; }
         }
         
         string IMigrationMetadata.Source

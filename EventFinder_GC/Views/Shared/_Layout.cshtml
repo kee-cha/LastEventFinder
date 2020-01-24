@@ -7,8 +7,12 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
 </head>
+
 <body>
+
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -25,35 +29,43 @@
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                     @if (User.IsInRole("Customer") == true)
                     {
-                    <li>@Html.ActionLink("Customer Home", "Index", "Customers")</li>
+                        <li>@Html.ActionLink("Customer Home", "Index", "Customers")</li>
                     }
                     else
                     {
-                    <li>@Html.ActionLink("Host Home", "Index", "Hosts")</li>
-                    <li>@Html.ActionLink("Hosted Events", "Index", "Events")</li>
+
+                        <li>@Html.ActionLink("Host Home", "Index", "Hosts")</li>
+                        <li>@Html.ActionLink("Hosted Events", "Details", "Events")</li>
                     }
 
 
                 </ul>
 
                 @Html.Partial("_LoginPartial")
+
             </div>
+
+
         </div>
+
     </div>
+
 
     <div class="container body-content">
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - Event_Finder Web Application</p>
         </footer>
     </div>
-    
+
+
+
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 
-   
+
 
 </body>
 </html>
