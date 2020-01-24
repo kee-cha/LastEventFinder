@@ -7,15 +7,6 @@ namespace EventFinderAPI.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-<<<<<<< HEAD:EventFinderAPI/EventFinderAPI/Migrations/202001232140507_update.Designer.cs
-    public sealed partial class update : IMigrationMetadata
-    {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(update));
-        
-        string IMigrationMetadata.Id
-        {
-            get { return "202001232140507_update"; }
-=======
     public sealed partial class Init : IMigrationMetadata
     {
         private readonly ResourceManager Resources = new ResourceManager(typeof(Init));
@@ -23,7 +14,6 @@ namespace EventFinderAPI.Migrations
         string IMigrationMetadata.Id
         {
             get { return "202001241701021_Init"; }
->>>>>>> 7fa23fe3334ff931c183860b60fb3d1fc1d4c495:EventFinderAPI/EventFinderAPI/Migrations/202001241701021_Init.Designer.cs
         }
         
         string IMigrationMetadata.Source

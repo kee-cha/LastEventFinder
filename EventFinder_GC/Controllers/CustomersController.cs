@@ -62,13 +62,7 @@ namespace EventFinder_GC.Controllers
         // GET: Customers/Details/5
         public async Task<ActionResult> Details(int? id)
         {
-            Host eventHost = new Host();
-
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-
+            Host eventHost = new Host();        
             EventApi singleEvent = new EventApi();
             double? rating = 0;
             double count = 0;
@@ -86,6 +80,7 @@ namespace EventFinder_GC.Controllers
                     {
                         singleEvent = item;
                         eventHost = db.Hosts.Where(h => h.HostId == singleEvent.HostId).FirstOrDefault();
+                        await GetCoord(singleEvent);
                     }
                 }
 
@@ -104,22 +99,32 @@ namespace EventFinder_GC.Controllers
                 ViewBag.EventHostName = eventHost.FirstName + " " + eventHost.LastName;
                 ViewBag.HostRatingByCategory = avgRating;
             }
-
-
-
-
-
-            //filter through events where events id matches passed id
-
-            if (singleEvent == null)
+            return View(singleEvent);
+        }
+        public async Task<ActionResult> GetCoord(EventApi singleEvent)
+        {
+            string location = singleEvent.Street + "+" + singleEvent.City + "+" + singleEvent.State + "+" + singleEvent.ZipCode;
+            HttpClient client = new HttpClient();
+            string key = Key.myKey;
+            string url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + location + "&key=" + key;
+            HttpResponseMessage response = await client.GetAsync(url);
+            string result = await response.Content.ReadAsStringAsync();
+            if (response.IsSuccessStatusCode)
             {
-                return HttpNotFound();
+                GeoModel GeoResult  = JsonConvert.DeserializeObject<GeoModel>(result);
+
+                singleEvent.Latitude = GeoResult.results[0].geometry.location.lat;
+                singleEvent.Longitude = GeoResult.results[0].geometry.location.lng;
+                ViewBag.Key = "https://maps.googleapis.com/maps/api/js?key=" + key + "&callback=initMap";
+                return View(singleEvent);
             }
 
             return View(singleEvent);
-
-            //return the view of a single event, not list of events Friendly PSA 
+            
+   
         }
+
+
 
         // GET: Customers/Create
         public ActionResult Create()
@@ -174,7 +179,7 @@ namespace EventFinder_GC.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CustomerId,FirstName,LastName,AddressId,ApplicationId")] Customer customer)
+        public ActionResult Edit(Customer customer)
         {
             if (ModelState.IsValid)
             {
@@ -221,5 +226,6 @@ namespace EventFinder_GC.Controllers
             }
             base.Dispose(disposing);
         }
+ 
     }
 }

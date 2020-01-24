@@ -7,13 +7,13 @@ namespace EventFinder_GC.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class ChangedDataTypes : IMigrationMetadata
+    public sealed partial class PostGitmigration : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(ChangedDataTypes));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(PostGitmigration));
         
         string IMigrationMetadata.Id
         {
-            get { return "202001241507247_ChangedDataTypes"; }
+            get { return "202001242033047_PostGitmigration"; }
         }
         
         string IMigrationMetadata.Source

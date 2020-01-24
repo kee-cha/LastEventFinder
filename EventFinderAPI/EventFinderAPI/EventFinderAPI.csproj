@@ -270,29 +270,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202001231933526_BryceMigration.cs" />
-    <Compile Include="Migrations\202001231933526_BryceMigration.Designer.cs">
-      <DependentUpon>202001231933526_BryceMigration.cs</DependentUpon>
+    <Compile Include="Migrations\202001241701021_Init.cs" />
+    <Compile Include="Migrations\202001241701021_Init.Designer.cs">
+      <DependentUpon>202001241701021_Init.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202001231939063_AddedHostIdAndRating.cs" />
-    <Compile Include="Migrations\202001231939063_AddedHostIdAndRating.Designer.cs">
-      <DependentUpon>202001231939063_AddedHostIdAndRating.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202001232136050_ImagePathAddition.cs" />
-    <Compile Include="Migrations\202001232136050_ImagePathAddition.Designer.cs">
-      <DependentUpon>202001232136050_ImagePathAddition.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202001232140507_update.cs" />
-    <Compile Include="Migrations\202001232140507_update.Designer.cs">
-      <DependentUpon>202001232140507_update.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202001232156211_UpdatedEventsImageManually.cs" />
-    <Compile Include="Migrations\202001232156211_UpdatedEventsImageManually.Designer.cs">
-      <DependentUpon>202001232156211_UpdatedEventsImageManually.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202001241505533_changedDataTypes.cs" />
-    <Compile Include="Migrations\202001241505533_changedDataTypes.Designer.cs">
-      <DependentUpon>202001241505533_changedDataTypes.cs</DependentUpon>
+    <Compile Include="Migrations\202001241704399_new.cs" />
+    <Compile Include="Migrations\202001241704399_new.Designer.cs">
+      <DependentUpon>202001241704399_new.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
@@ -310,11 +294,6 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="EventImage\Art.jpg" />
-    <Content Include="EventImage\Food.jpg" />
-    <Content Include="EventImage\Music.jfif" />
-    <Content Include="EventImage\Sports.jpg" />
-    <Content Include="EventImage\Tech.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -403,23 +382,13 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202001231933526_BryceMigration.resx">
-      <DependentUpon>202001231933526_BryceMigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202001241701021_Init.resx">
+      <DependentUpon>202001241701021_Init.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001231939063_AddedHostIdAndRating.resx">
-      <DependentUpon>202001231939063_AddedHostIdAndRating.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001232136050_ImagePathAddition.resx">
-      <DependentUpon>202001232136050_ImagePathAddition.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001232140507_update.resx">
-      <DependentUpon>202001232140507_update.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001232156211_UpdatedEventsImageManually.resx">
-      <DependentUpon>202001232156211_UpdatedEventsImageManually.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001241505533_changedDataTypes.resx">
-      <DependentUpon>202001241505533_changedDataTypes.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202001241704399_new.resx">
+      <DependentUpon>202001241704399_new.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

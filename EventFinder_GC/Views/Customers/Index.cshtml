@@ -1,5 +1,4 @@
-﻿@model IEnumerable< EventFinder_GC.Models.EventApi>
-
+﻿@model IEnumerable<EventFinder_GC.Models.EventApi>
 @{
     ViewBag.Title = "Index";
     //<img src=${event.ImageURL}>
@@ -9,7 +8,7 @@
 
 <p>
     @Html.ActionLink("Create New", "Create")
-    @Html.ActionLink("See All Events", "Index", new {seeAllEvents = true })
+    @Html.ActionLink("See All Events", "Index", new { seeAllEvents = true })
 </p>
 <table class="table">
     <tr>
@@ -85,7 +84,19 @@
     </tr>
     }
 </table>
-
+@*<div id="map"></div>
+<script>
+        var map;
+        function initMap() {
+            var location = {lat:@model. lng: }
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: location,
+                zoom: 8
+            });
+        }
+    </script>
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"
+        async defer></script>*@
 
 <h2>Events List:</h2>
 <ul id="events"></ul>
@@ -100,18 +111,18 @@
 
         function addEvent(event) {
             $eventsList.append(`<li id = ${event.EventId}><strong>Event Name</strong>: ${event.EventName}
-                                                      <br><strong>Venue Name</strong>: ${event.VenueName}
-                                                      <br><strong>Date</strong>: ${event.Date}
-                                                      <br><strong>Category</strong>: ${event.Category}
-                                                      <br><strong>SubCategory</strong>: ${event.SubCategory}
-                                                      <br><strong>Street</strong>: ${event.Street}
-                                                      <br><strong>City</strong>: ${event.City}
-                                                      <br><strong>State</strong>: ${event.State}
-                                                      <br><strong>ZipCode</strong>: ${event.ZipCode}</li><br> `);
+                                                                  <br><strong>Venue Name</strong>: ${event.VenueName}
+                                                                  <br><strong>Date</strong>: ${event.Date}
+                                                                  <br><strong>Category</strong>: ${event.Category}
+                                                                  <br><strong>SubCategory</strong>: ${event.SubCategory}
+                                                                  <br><strong>Street</strong>: ${event.Street}
+                                                                  <br><strong>City</strong>: ${event.City}
+                                                                  <br><strong>State</strong>: ${event.State}
+                                                                  <br><strong>ZipCode</strong>: ${event.ZipCode}</li><br> `);
 
 
         }
-        
+
 
         function GetButtonNoParams() {
             $(function () {
@@ -121,7 +132,7 @@
                     success: function (events) {
                         $.each(events, function (i, event) { //goes through array of data and manipulates each item
                             addEvent(event);
-                            
+
 
                         });
                     },

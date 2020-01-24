@@ -77,9 +77,9 @@
         <dd>
             @Html.DisplayFor(model => model.ZipCode)
         </dd>
-    </dl>    
+    </dl>
 
-    <img src=@Html.Raw(Model.ImagePath)>    
+    <img src=@Html.Raw(Model.ImagePath)>
 </div>
 
 <p>
@@ -91,3 +91,16 @@
 <h2>Host Rating For This Category: @ViewBag.HostRatingByCategory</h2>
 
 <h2>Google Maps Implemented Here</h2>
+
+
+<div id="map"></div>
+<script>        
+    function initMap() {
+        var location = { lat: @Model.Latitude, lng: @Model.Longitude};
+        var map = new google.maps.Map(document.getElementById('map'), { zoom: 4, center: location });
+        var marker = new google.maps.Marker({ position: location, map: map });
+    }
+</script>
+<script async defer src=@ViewBag.Key></script>
+
+<p>@Html.ActionLink("Back to Events List", "Index")</p>

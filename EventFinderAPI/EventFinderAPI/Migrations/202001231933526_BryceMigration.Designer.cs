@@ -7,6 +7,7 @@ namespace EventFinderAPI.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
+<<<<<<< HEAD:EventFinderAPI/EventFinderAPI/Migrations/202001231933526_BryceMigration.Designer.cs
     public sealed partial class BryceMigration : IMigrationMetadata
     {
         private readonly ResourceManager Resources = new ResourceManager(typeof(BryceMigration));
@@ -14,6 +15,15 @@ namespace EventFinderAPI.Migrations
         string IMigrationMetadata.Id
         {
             get { return "202001231933526_BryceMigration"; }
+=======
+    public sealed partial class _new : IMigrationMetadata
+    {
+        private readonly ResourceManager Resources = new ResourceManager(typeof(_new));
+        
+        string IMigrationMetadata.Id
+        {
+            get { return "202001241704399_new"; }
+>>>>>>> 7fa23fe3334ff931c183860b60fb3d1fc1d4c495:EventFinderAPI/EventFinderAPI/Migrations/202001241704399_new.Designer.cs
         }
         
         string IMigrationMetadata.Source
