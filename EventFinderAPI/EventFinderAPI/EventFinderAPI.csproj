@@ -270,11 +270,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-
-    <Compile Include="Migrations\202001222137384_redoMigration.cs" />
-    <Compile Include="Migrations\202001222137384_redoMigration.Designer.cs">
-      <DependentUpon>202001222137384_redoMigration.cs</DependentUpon>
-
+    <Compile Include="Migrations\202001241701021_Init.cs" />
+    <Compile Include="Migrations\202001241701021_Init.Designer.cs">
+      <DependentUpon>202001241701021_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001241704399_new.cs" />
+    <Compile Include="Migrations\202001241704399_new.Designer.cs">
+      <DependentUpon>202001241704399_new.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
@@ -380,8 +382,11 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202001222137384_redoMigration.resx">
-      <DependentUpon>202001222137384_redoMigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202001241701021_Init.resx">
+      <DependentUpon>202001241701021_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001241704399_new.resx">
+      <DependentUpon>202001241704399_new.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

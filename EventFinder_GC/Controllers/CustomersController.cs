@@ -37,7 +37,7 @@ namespace EventFinder_GC.Controllers
                 }
 
                 //pass deserialized response as object to view, then change model in view from customer
-                return View(events);
+                return View("Details", events);
             }
             else
             {
@@ -60,19 +60,44 @@ namespace EventFinder_GC.Controllers
         }
 
         // GET: Customers/Details/5
-        public ActionResult Details(int? id)
+        public async Task<ActionResult> Details(int? id)
         {
-            if (id == null)
+            
+            HttpClient client = new HttpClient();
+            string url = "https://localhost:44355/api/Events/"+ id;
+            HttpResponseMessage response = await client.GetAsync(url);
+            string jsonResult = await response.Content.ReadAsStringAsync();
+            if (response.IsSuccessStatusCode)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                //deserialize response 
+                EventApi events = JsonConvert.DeserializeObject<EventApi>(jsonResult);
+                await GetCoord(events);
+                return View(events);
             }
-            Customer customer = db.Customers.Find(id);
-            if (customer == null)
-            {
-                return HttpNotFound();
-            }
-            return View(customer);
+                return View();                
         }
+        public async Task<ActionResult> GetCoord(EventApi events)
+        {
+            string location = events.Street + "+" + events.City + "+" + events.State + "+" + events.ZipCode;
+            HttpClient client = new HttpClient();
+            string key = Key.myKey;
+            string url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + location + "&key=" + key;
+            HttpResponseMessage response = await client.GetAsync(url);
+            string result = await response.Content.ReadAsStringAsync();
+            if (response.IsSuccessStatusCode)
+            {
+                GeoModel GeoResult  = JsonConvert.DeserializeObject<GeoModel>(result);
+            
+                events.Latitude = GeoResult.results[0].geometry.location.lat;
+                events.Longitude = GeoResult.results[0].geometry.location.lng;
+
+                return View(events);
+            }
+            return View();
+   
+        }
+
+
 
         // GET: Customers/Create
         public ActionResult Create()
@@ -127,7 +152,7 @@ namespace EventFinder_GC.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CustomerId,FirstName,LastName,AddressId,ApplicationId")] Customer customer)
+        public ActionResult Edit(Customer customer)
         {
             if (ModelState.IsValid)
             {
@@ -174,5 +199,6 @@ namespace EventFinder_GC.Controllers
             }
             base.Dispose(disposing);
         }
+ 
     }
 }

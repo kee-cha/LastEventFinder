@@ -48,7 +48,7 @@ namespace EventFinder_GC.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "EventId,EventName,VenueName,Date,Category,SubCategory,HostId,AddressId")] Event @event)
+        public ActionResult Create(Event @event)
         {
             if (ModelState.IsValid)
             {
