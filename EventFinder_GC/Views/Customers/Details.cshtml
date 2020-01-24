@@ -1,50 +1,125 @@
-﻿@model EventFinder_GC.Models.Customer
+﻿@model EventFinder_GC.Models.EventApi
 
 @{
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
-
 <div>
+<<<<<<< HEAD
     <h4>Customer</h4>
     <hr />
+    <dl class=" = dl-horizontal">
+=======
     <dl class="dl-horizontal">
+>>>>>>> b7ad837b881e235cc03b00bc0b03503131cdd6bc
         <dt>
-            @Html.DisplayNameFor(model => model.Address.Street)
+            @Html.DisplayNameFor(model => model.EventName)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Address.Street)
+            @Html.DisplayFor(model => model.EventName)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.ApplicationUser.Email)
+            @Html.DisplayNameFor(model => model.VenueName)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.ApplicationUser.Email)
+            @Html.DisplayFor(model => model.VenueName)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.FirstName)
+            @Html.DisplayNameFor(model => model.Date)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.FirstName)
+            @Html.DisplayFor(model => model.Date)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.LastName)
+            @Html.DisplayNameFor(model => model.Category)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.LastName)
+            @Html.DisplayFor(model => model.Category)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.SubCategory)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SubCategory)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Street)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Street)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.City)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.City)
+        </dd>
+<<<<<<< HEAD
     </dl>
+    
+       
+   
+
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.CustomerId }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+=======
+
+        <dt>
+            @Html.DisplayNameFor(model => model.State)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.State)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZipCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZipCode)
+        </dd>
+    </dl>
+
+    <img src=@Html.Raw(Model.ImagePath)>
 </div>
+
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.CustomerId }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
+
+<h2>Event Host and Rating</h2>
+<h2>Event Host: @ViewBag.EventHostName</h2>
+<h2>Host Rating For This Category: @ViewBag.HostRatingByCategory</h2>
+
+<h2>Google Maps Implemented Here</h2>
+
+
+<div id="map"></div>
+<script>        
+    function initMap() {
+        var location = { lat: @Model.Latitude, lng: @Model.Longitude};
+        var map = new google.maps.Map(document.getElementById('map'), { zoom: 4, center: location });
+        var marker = new google.maps.Marker({ position: location, map: map });
+    }
+</script>
+<script async defer src=@ViewBag.Key></script>
+
+<p>@Html.ActionLink("Back to Events List", "Index")</p>
+>>>>>>> b7ad837b881e235cc03b00bc0b03503131cdd6bc

@@ -6,10 +6,15 @@
 
 <h2>Create</h2>
 
+<<<<<<< HEAD
+
+@using (Html.BeginForm())
+=======
 @using (Html.BeginForm()) 
+>>>>>>> b7ad837b881e235cc03b00bc0b03503131cdd6bc
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Customer</h4>
         <hr />
@@ -86,6 +91,7 @@
             </div>
         </div>
     </div>
+    <input type="button" value="Join!" onclick="location.href='@Url.Action("Create", "User")'" />
 }
 
 <div>

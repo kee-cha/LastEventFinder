@@ -78,11 +78,15 @@ namespace EventFinderAPI.Controllers
             {
                 return BadRequest(ModelState);
             }
-
+            
             db.Events.Add(events);
             db.SaveChanges();
 
             return CreatedAtRoute("DefaultApi", new { id = events.EventId }, events);
+
+
+
+            
         }
 
         // DELETE: api/Events/5

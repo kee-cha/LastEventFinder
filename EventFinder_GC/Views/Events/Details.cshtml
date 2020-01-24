@@ -66,9 +66,22 @@
             @Html.DisplayFor(model => model.SubCategory)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.IsEvent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsEvent)
+        </dd>
+        
+        <dd>
+            <input type="button" value="Join Event!" onclick="location.href='@Url.Action("Create", "CustomerEvents")'" />
+        </dd>
+
     </dl>
 </div>
 <p>
+   
     @Html.ActionLink("Edit", "Edit", new { id = Model.EventId }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

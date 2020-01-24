@@ -1,4 +1,4 @@
-﻿@model IEnumerable< EventFinder_GC.Models.EventApi>
+﻿@model IEnumerable<EventFinder_GC.Models.EventApi>
 
 @{
     ViewBag.Title = "Index";
@@ -9,111 +9,189 @@
 
 <p>
     @Html.ActionLink("Create New", "Create")
-    @Html.ActionLink("See All Events", "Index", new {seeAllEvents = true })
+    @Html.ActionLink("See All Events", "Index", new { seeAllEvents = true })
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.EventId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EventName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.VenueName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Date)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Category)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SubCategory)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Street)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.City)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.State)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ZipCode)
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.EventId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EventName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.VenueName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Date)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Category)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SubCategory)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Street)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.City)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.State)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ZipCode)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.EventId }) |
-            @Html.ActionLink("Details", "Details", new { id = item.EventId }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.EventId })
-        </td>
-    </tr>
-    }
-</table>
 
 
-<h2>Events List:</h2>
-<ul id="events"></ul>
+<div class="btn-group-vertical">
+    
+    <button type="button" class="btn btn-primary dropdown-toggle "  data-toggle="dropdown">
+        Categorys
+    </button>
 
-<button onclick="GetButtonNoParams()" id="Get">Get</button>
+    <div class="dropdown-menu dropdown-menu-left">
 
-@section Scripts
+        <h5 class="dropdown-header">Art</h5>
+        <div class="dropdown-divider"></div>
+
+
+
+        @Html.ActionLink("Exhibitions", "FilterByCatAsync", new { subCategory = "Exhibitions" })<br />
+        <div class="dropdown-divider"></div>
+        @Html.ActionLink("Lessons", "FilterByCatAsync", new { subCategory = "Lessons" })<br />
+        <div class="dropdown-divider"></div>
+        @Html.ActionLink("YouthEvents", "FilterByCatAsync", new { subCategory = "YouthEvents" })<br />
+        <div class="dropdown-divider"></div>
+
+
+        <div class="dropdown-divider"></div>
+        <h5 class="dropdown-header" href="#">Sports</h5>
+
+        @Html.ActionLink("Basketball", "FilterByCatAsync", new { subCategory = "Basketball" })<br />
+        <div class="dropdown-divider"></div>
+        @Html.ActionLink("Rugby", "FilterByCatAsync", new { subCategory = "Rugby" })<br />
+        <div class="dropdown-divider"></div>
+        @Html.ActionLink("MMA", "FilterByCatAsync", new { subCategory = "MMA" })<br />
+        <div class="dropdown-divider"></div>
+
+
+        <div class="dropdown-divider"></div>
+        <h5 class="dropdown-header">Tech</h5>
+
+        @Html.ActionLink("Code Related", "FilterByCatAsync", new { subCategory = "Coding" })<br />
+        <div class="dropdown-divider"></div>
+        @Html.ActionLink("Expos", "FilterByCatAsync", new { subCategory = "Expo" })<br />
+        <div class="dropdown-divider"></div>
+        @Html.ActionLink("Conventions", "FilterByCatAsync", new { subCategory = "Convention" })<br />
+        <div class="dropdown-divider"></div>
+
+
+
+        <div class="dropdown-divider"></div>
+        <h5 class="dropdown-header" href="#">Food/Drink</h5>
+
+        @Html.ActionLink("Classes", "FilterByCatAsync", new { subCategory = "Class" })<br />
+        <div class="dropdown-divider"></div>
+        @Html.ActionLink("Beer Gardens", "FilterByCatAsync", new { subCategory = "Beer Garden" })<br />
+        <div class="dropdown-divider"></div>
+        @Html.ActionLink("Wine Tasing", "FilterByCatAsync", new { subCategory = "Wine" })<br />
+        <div class="dropdown-divider"></div>
+
+
+        <div class="dropdown-divider"></div>
+        <h5 class="dropdown-header" href="#">Music</h5>
+
+        @Html.ActionLink("R&B", "FilterByCatAsync", new { subCategory = "R&B" })<br />
+        <div class="dropdown-divider"></div>
+        @Html.ActionLink("Rap", "FilterByCatAsync", new { subCategory = "Rap" })<br />
+        <div class="dropdown-divider"></div>
+        @Html.ActionLink("Rock", "FilterByCatAsync", new { subCategory = "Rock" })<br />
+        <div class="dropdown-divider"></div>
+        @Html.ActionLink("Pop", "FilterByCatAsync", new { subCategory = "Pop" })<br />
+        <div class="dropdown-divider"></div>
+</div>
+
+    </div>
+    <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#Events">All Events!</button>
+    <div id="Events" class="collapse">
+
+
+
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.EventId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EventName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VenueName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Date)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Category)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SubCategory)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Street)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.City)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.State)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ZipCode)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EventId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EventName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VenueName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Date)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Category)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SubCategory)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Street)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.City)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.State)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ZipCode)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.EventId }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.EventId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.EventId })
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+
+
+    <h2>Events List:</h2>
+    <ul id="events"></ul>
+
+    <button onclick="GetButtonNoParams()" id="Get">Get</button>
+
+    @section Scripts
 {
+
     <script type="text/javascript">
 
         var $eventsList = $('#events');
 
         function addEvent(event) {
             $eventsList.append(`<li id = ${event.EventId}><strong>Event Name</strong>: ${event.EventName}
-                                                      <br><strong>Venue Name</strong>: ${event.VenueName}
-                                                      <br><strong>Date</strong>: ${event.Date}
-                                                      <br><strong>Category</strong>: ${event.Category}
-                                                      <br><strong>SubCategory</strong>: ${event.SubCategory}
-                                                      <br><strong>Street</strong>: ${event.Street}
-                                                      <br><strong>City</strong>: ${event.City}
-                                                      <br><strong>State</strong>: ${event.State}
-                                                      <br><strong>ZipCode</strong>: ${event.ZipCode}</li><br> `);
+                                                                  <br><strong>Venue Name</strong>: ${event.VenueName}
+                                                                  <br><strong>Date</strong>: ${event.Date}
+                                                                  <br><strong>Category</strong>: ${event.Category}
+                                                                  <br><strong>SubCategory</strong>: ${event.SubCategory}
+                                                                  <br><strong>Street</strong>: ${event.Street}
+                                                                  <br><strong>City</strong>: ${event.City}
+                                                                  <br><strong>State</strong>: ${event.State}
+                                                                  <br><strong>ZipCode</strong>: ${event.ZipCode}</li><br> `);
 
 
         }
-        
+
 
         function GetButtonNoParams() {
             $(function () {
@@ -123,7 +201,7 @@
                     success: function (events) {
                         $.each(events, function (i, event) { //goes through array of data and manipulates each item
                             addEvent(event);
-                            
+
 
                         });
                     },
@@ -131,8 +209,7 @@
                         alert('error loading events');
                     }
                 });
-            });
-        }
+            }
 
-    </script>
-}
+        </script>
+    }

@@ -20,7 +20,12 @@ namespace EventFinder_GC.Controllers
             var events = db.Events.Include(e => e.Address).Include(e => e.Host);
             return View(events.ToList());
         }
-
+        public ActionResult FilterByCat(string subCategory)
+        {
+            var events = db.Events.Include(e => e.Address).Include(e => e.Host);                   
+            var newEvents = events.Where(e => e.SubCategory == subCategory);            
+            return View("Index", newEvents);
+        }
         // GET: Events/Details/5
         public ActionResult Details(int? id)
         {
@@ -48,7 +53,7 @@ namespace EventFinder_GC.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "EventId,EventName,VenueName,Date,Category,SubCategory,HostId,AddressId")] Event @event)
+        public ActionResult Create(Event @event)
         {
             if (ModelState.IsValid)
             {

@@ -9,6 +9,80 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+
+<div class="btn-group-vertical">
+    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+        Categorys
+    </button>
+
+    <div class="dropdown-menu">
+
+        <h5 class="dropdown-header">Art</h5>
+        <div class="dropdown-divider"></div>
+
+
+
+        @Html.ActionLink("Exhibitions", "FilterByCat", new { subCategory = "Exhibitions" })<br />
+        <div class="dropdown-divider"></div>
+        @Html.ActionLink("Lessons", "FilterByCat", new { subCategory = "Lessons" })<br />
+        <div class="dropdown-divider"></div>
+        @Html.ActionLink("YouthEvents", "FilterByCat", new { subCategory = "YouthEvents" })<br />
+        <div class="dropdown-divider"></div>
+
+
+        <div class="dropdown-divider"></div>
+        <h5 class="dropdown-header" href="#">Sports</h5>
+
+        @Html.ActionLink("Basketball", "FilterByCat", new { subCategory = "Basketball" })<br />
+        <div class="dropdown-divider"></div>
+        @Html.ActionLink("Rugby", "FilterByCat", new { subCategory = "Rugby" })<br />
+        <div class="dropdown-divider"></div>
+        @Html.ActionLink("MMA", "FilterByCat", new { subCategory = "MMA" })<br />
+        <div class="dropdown-divider"></div>
+
+
+        <div class="dropdown-divider"></div>
+        <h5 class="dropdown-header">Tech</h5>
+
+        @Html.ActionLink("Code Related", "FilterByCat", new { subCategory = "Coding" })<br />
+        <div class="dropdown-divider"></div>
+        @Html.ActionLink("Expos", "FilterByCat", new { subCategory = "Expo" })<br />
+        <div class="dropdown-divider"></div>
+        @Html.ActionLink("Conventions", "FilterByCat", new { subCategory = "Convention" })<br />
+        <div class="dropdown-divider"></div>
+
+
+
+        <div class="dropdown-divider"></div>
+        <h5 class="dropdown-header" href="#">Food/Drink</h5>
+
+        @Html.ActionLink("Classes", "FilterByCat", new { subCategory = "Class" })<br />
+        <div class="dropdown-divider"></div>
+        @Html.ActionLink("Beer Gardens", "FilterByCat", new { subCategory = "Beer Garden" })<br />
+        <div class="dropdown-divider"></div>
+        @Html.ActionLink("Wine Tasing", "FilterByCat", new { subCategory = "Wine" })<br />
+        <div class="dropdown-divider"></div>
+
+
+
+        <div class="dropdown-divider"></div>
+        <h5 class="dropdown-header" href="#">Music</h5>
+
+        @Html.ActionLink("R&B", "FilterByCat", new { subCategory = "R&B" })<br />
+        <div class="dropdown-divider"></div>
+        @Html.ActionLink("Rap", "FilterByCat", new { subCategory = "Rap" })<br />
+        <div class="dropdown-divider"></div>
+        @Html.ActionLink("Rock", "FilterByCat", new { subCategory = "Rock" })<br />
+        <div class="dropdown-divider"></div>
+        @Html.ActionLink("Pop", "FilterByCat", new { subCategory = "Pop" })<br />
+        <div class="dropdown-divider"></div>
+
+
+    </div>
+</div>
+
+@Html.ActionLink("Joined Events", "Index", "CustomerEvents")
+
 <table class="table">
     <tr>
         <th>
@@ -35,35 +109,40 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Address.Street)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Host.FirstName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EventName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.VenueName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Date)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Category)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SubCategory)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.EventId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.EventId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.EventId })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address.Street)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Host.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EventName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VenueName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubCategory)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.EventId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.EventId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.EventId })
+
+
+            </td>
+        </tr>
+
+
+    }
 
 </table>
