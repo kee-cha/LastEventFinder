@@ -10,13 +10,10 @@ namespace EventFinder_GC.Models
     public class PayPalModel
     {
         private bool useSandbox;
-
         public PayPalModel()
         {
-
+            
         }
-       
-
         public string Cmd { get; set; }
         public string business { get; set; }
         public string no_shipping { get; set; }
@@ -41,7 +38,7 @@ namespace EventFinder_GC.Models
             }
             else
             {
-                this.actionURL = ConfigurationManager.AppSettings["Prod_u"];
+                this.actionURL = ConfigurationManager.AppSettings["Prod_url"];
             }
             // We can add parameters here, for example OrderId, CustomerId, etc….
             this.notify_url = ConfigurationManager.AppSettings["notify_url"];

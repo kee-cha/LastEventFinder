@@ -7,13 +7,13 @@ namespace EventFinder_GC.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class Model : IMigrationMetadata
+    public sealed partial class add_paypal : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Model));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(add_paypal));
         
         string IMigrationMetadata.Id
         {
-            get { return "202001242156355_Model"; }
+            get { return "202001261736552_add_paypal"; }
         }
         
         string IMigrationMetadata.Source

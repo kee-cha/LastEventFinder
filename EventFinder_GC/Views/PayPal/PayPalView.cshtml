@@ -5,7 +5,7 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    <h2>ValidateCommand</h2>
+    <h2>PayPalView</h2>
     <div>
         <table>
             <tr>
@@ -13,7 +13,7 @@
                    Event Name:
                 </td>
                 <td>
-                    <input type="text" name="EventName" value="Visual Studio 2019" readonly />
+                    <input type="text" name="EventName" value="Eventname" readonly />
                 </td>
             </tr>
             <tr>
@@ -21,7 +21,7 @@
                     Total Price:
                 </td>
                 <td>
-                    $<input type="text" name="totalPrice" value="14800" readonly />
+                    $<input type="text" name="totalPrice" value=" " readonly />
                 </td>
             </tr>
             <tr>
