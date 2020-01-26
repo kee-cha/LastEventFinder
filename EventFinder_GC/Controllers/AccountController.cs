@@ -173,7 +173,7 @@ namespace EventFinder_GC.Controllers
                     //Ends Here  
                     if( model.UserRoles == "Customer")
                     {
-                        return RedirectToAction("Create", "Addresses");
+                        return RedirectToAction("Create", "Customers");
                     } else
                     {
                         return RedirectToAction("Create", "Hosts");
@@ -402,6 +402,11 @@ namespace EventFinder_GC.Controllers
             return View(model);
         }
 
+        public ActionResult LogOut()
+        {
+            AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+            return RedirectToAction("Login");
+        }
         //
         // POST: /Account/LogOff
         [HttpPost]

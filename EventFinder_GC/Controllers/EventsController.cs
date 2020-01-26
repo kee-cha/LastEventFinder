@@ -17,12 +17,12 @@ namespace EventFinder_GC.Controllers
         // GET: Events
         public ActionResult Index()
         {
-            var events = db.Events.Include(e => e.Address).Include(e => e.Host);
-            return View(events.ToList());
+            var events = db.Events.Include(e => e.Host).ToList(); 
+            return View(events);
         }
         public ActionResult FilterByCat(string subCategory)
         {
-            var events = db.Events.Include(e => e.Address).Include(e => e.Host);                   
+            var events = db.Events.Include(e => e.Host);                   
             var newEvents = events.Where(e => e.SubCategory == subCategory);            
             return View("Index", newEvents);
         }
@@ -62,7 +62,7 @@ namespace EventFinder_GC.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.AddressId = new SelectList(db.Addresses, "AddressId", "Street", @event.AddressId);
+
             ViewBag.HostId = new SelectList(db.Hosts, "HostId", "FirstName", @event.HostId);
             return View(@event);
         }
@@ -79,7 +79,6 @@ namespace EventFinder_GC.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.AddressId = new SelectList(db.Addresses, "AddressId", "Street", @event.AddressId);
             ViewBag.HostId = new SelectList(db.Hosts, "HostId", "FirstName", @event.HostId);
             return View(@event);
         }
@@ -89,7 +88,7 @@ namespace EventFinder_GC.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "EventId,EventName,VenueName,Date,Category,SubCategory,HostId,AddressId")] Event @event)
+        public ActionResult Edit(Event @event)
         {
             if (ModelState.IsValid)
             {
@@ -97,7 +96,6 @@ namespace EventFinder_GC.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.AddressId = new SelectList(db.Addresses, "AddressId", "Street", @event.AddressId);
             ViewBag.HostId = new SelectList(db.Hosts, "HostId", "FirstName", @event.HostId);
             return View(@event);
         }

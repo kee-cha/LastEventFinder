@@ -85,7 +85,7 @@ namespace EventFinder_GC.Controllers
                 host.ApplicationId = User.Identity.GetUserId();
                 db.Hosts.Add(host);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("LogOut", "Account");
             }
             return View(host);
         }

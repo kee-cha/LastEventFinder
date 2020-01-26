@@ -16,14 +16,14 @@ namespace EventFinder_GC.Models
         public string Date { get; set; }
         public string Category { get; set; }
         public string SubCategory { get; set; }
-        public bool IsEvent { get; set; }
-
+        public string Street { get; set; }
+        public string City { get; set; }
+        public string State { get; set; }
+        public string ZipCode { get; set; }
         [ForeignKey("Host")]
-        public int HostId { get; set; }
+        public int? HostId { get; set; }
         public Host Host { get; set; }
-        [ForeignKey("Address")]
-        public int AddressId { get; set; }
-        public Address Address { get; set; }
+
 
     }
 }
