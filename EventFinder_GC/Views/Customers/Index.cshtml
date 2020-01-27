@@ -5,10 +5,9 @@
     //<img src=${event.ImageURL}>
 }
 
-<h2>Index</h2>
+<h2>Recommended Events</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
     @Html.ActionLink("See All Events", "Index", new { seeAllEvents = true })
 </p>
 
@@ -82,7 +81,7 @@
 </div>
 
     </div>
-    <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#Events">All Events!</button>
+    @*<button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#Events">All Events!</button>*@
     @*<div id="Events" class="collapse">*@
 
 
@@ -156,9 +155,8 @@
                         @Html.DisplayFor(modelItem => item.ZipCode)
                     </td>
                     <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.EventId }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.EventId }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.EventId })
+
+                        @Html.ActionLink("Event Details", "Details", new { id = item.EventId }) |
                     </td>
                 </tr>
             }
