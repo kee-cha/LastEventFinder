@@ -109,13 +109,13 @@ namespace EventFinder_GC.Controllers
 
         public ActionResult RedirectSMSRate()
         {
-            const string accountSid = "ACf8ef518f2caa247cdc63eff68b63c9ed";
-            const string authToken = "8acbe0f623b6616a6990d20a7cc8681b";
+            const string accountSid = "ACcecf5051a0d580c335c6a25bbb9c470e";
+            const string authToken = "4962acf649231d182bf63026d0e4757d";
             TwilioClient.Init(accountSid, authToken);
 
             var message = MessageResource.Create(
-            body: "Thank you for your participation in our experimental feature! Please reply with a rating for your event with an integer between 1 and 5.",
-            from: new Twilio.Types.PhoneNumber("+12016227399"),
+            body: "Thank you for your participation in our feature! Please reply with a rating for your event with an integer between 1 and 5.",
+            from: new Twilio.Types.PhoneNumber("+12512654255"),
             to: new Twilio.Types.PhoneNumber("+19206557490")
             );
 

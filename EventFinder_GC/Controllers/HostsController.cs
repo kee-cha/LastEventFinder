@@ -59,7 +59,7 @@ namespace EventFinder_GC.Controllers
                 var result = postTask.Result;
                 if (result.IsSuccessStatusCode)
                 {
-                    return RedirectToAction("Index","Customers");
+                    return RedirectToAction("Index","Hosts");
                 }
             }
             ModelState.AddModelError(string.Empty, "Server Error. Please contact administrator.");
