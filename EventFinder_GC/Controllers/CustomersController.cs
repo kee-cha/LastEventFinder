@@ -163,8 +163,6 @@ namespace EventFinder_GC.Controllers
                 //viewbag the event host full name 
                 ViewBag.EventHostName = eventHost.FirstName + " " + eventHost.LastName;
                 ViewBag.HostRatingByCategory = avgRating;
-                var userId = User.Identity.GetUserId();
-                ViewBag.Customer = db.Customers.Where(c => c.ApplicationId == userId).SingleOrDefault();
             }
             return View(singleEvent);
         }
@@ -183,13 +181,33 @@ namespace EventFinder_GC.Controllers
                 singleEvent.Latitude = GeoResult.results[0].geometry.location.lat;
                 singleEvent.Longitude = GeoResult.results[0].geometry.location.lng;
                 ViewBag.Key = "https://maps.googleapis.com/maps/api/js?key=" + key + "&callback=initMap";
+                await GetDirection();
                 return View(singleEvent);
             }
 
             return View(singleEvent);           
    
         }
-
+        
+        public async Task<ActionResult> GetDirection()
+        {
+            string userId = User.Identity.GetUserId();
+            Customer customer = new Customer();
+            customer = db.Customers.Where(c => c.ApplicationId == userId).SingleOrDefault();
+            string location = customer.Street + "+" + customer.City + "+" + customer.State + "+" + customer.ZipCode;
+            HttpClient client = new HttpClient();
+            string url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + location + "&key=" + Key.myKey;
+            HttpResponseMessage response = await client.GetAsync(url);
+            string result = await response.Content.ReadAsStringAsync();
+            if (response.IsSuccessStatusCode)
+            {
+                GeoModel GeoResult = JsonConvert.DeserializeObject<GeoModel>(result);
+                ViewBag.CustLat = GeoResult.results[0].geometry.location.lat;
+                ViewBag.CustLng = GeoResult.results[0].geometry.location.lng;
+                return View();
+            }
+            return View();
+        }
 
 
         // GET: Customers/Create
