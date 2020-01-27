@@ -32,8 +32,6 @@ namespace EventFinder_GC.Models
             return new ApplicationDbContext();
         }
 
-        public System.Data.Entity.DbSet<EventFinder_GC.Models.Address> Addresses { get; set; }
-
         public System.Data.Entity.DbSet<EventFinder_GC.Models.Customer> Customers { get; set; }
 
         //public System.Data.Entity.DbSet<EventFinder_GC.Models.ApplicationUser> ApplicationUsers { get; set; }

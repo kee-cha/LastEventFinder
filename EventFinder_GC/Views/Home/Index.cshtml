@@ -1,4 +1,4 @@
-﻿
+﻿@model EventFinder_GC.Models.PayPalModel
 
 @{
     ViewBag.Title = "Home Page";
@@ -9,65 +9,57 @@
 
 
 <div class="row">
-    <div class="col-md-8">
-        <div class="image_logo navbar-left">
-            <img src="../image/mke365-logo.png" alt="logoimg" />
 
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="s-m-bar navbar-right">
-            <a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a>
-            <a href="https://www.instagram.com/"><i class="fa fa-instagram"></i></a>
-            <a href="https://www.linkedin.com/"><i class="fa fa-linkedin"></i></a>
-            <a href="https://twitter.com/"><i class="fa fa-twitter"></i></a>
-            <a href="https://www.youtube.com/"><i class="fa fa-youtube-play"></i></a>
-        </div>
-    </div>
 
-</div>
-        
-           <div class="slider navbar-left">
-
-                    <figure>
-                        <div class="slide">
-                            <img src="~/image/image1.jpg" alt="" />
-                        </div>
-                        <div class="slide">
-                            <img src="~/image/image2.jpg" alt="" />
-                        </div>
-                        <div class="slide">
-                            <img src="~/image/image4.jpg" alt="" />
-                        </div>
-                        <div class="slide">
-                            <img src="~/image/image5.jpg" alt="" />
-                        </div>
-                        <div class="slide">
-                            <img src="~/image/homeimg.jpg" alt="" />
-                        </div>
-                    </figure>
+    <div class="col-md-12">
+        <div class="slider navbar-left">
+            <figure>
+                <div class="slide">
+                    <img src="~/image/image13.jpg" alt="" />
+                </div>
+                <div class="slide">
+                    <img src="~/image/image4.jpg" alt="" />
+                </div>
+                <div class="slide">
+                    <img src="~/image/food3.jpg" alt="" />
+                </div>
+                <div class="slide">
+                    <img src="~/image/irish.jpg" alt="" />
+                </div>
+                <div class="slide">
+                    <img src="~/image/homeimg.jpg" alt="" />
                 </div>
 
-
-    <div class="row">
-        <div class="col-md-4">
-            <h2>SportEvents</h2>
-            <p>
-                ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-                enables a clean separation of concerns and gives you full control over markup
-                for enjoyable, agile development.
-            </p>
-            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-        </div>
-        <div class="col-md-4">
-            <h2>FoodEvents</h2>
-            <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-        </div>
-        <div class="col-md-4">
-            <h2>TechEvents</h2>
-            <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+            </figure>
         </div>
     </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>SportEvents</h2>
+        <p>
+            <div class="image_logo navbar-left">
+                <img src="../image/ski.jpg" alt="DC" height="300" width="300" />
+            </div>
+        </p>
+        <p></p>
+    </div>
+    <div class="col-md-4">
+        <h2>FoodEvents</h2>
+        <p>
+            <div class="image_logo navbar-left">
+                <img src="../image/food111.jpg" alt="DC" height="300" width="300" />
+            </div>
+        </p>
+    </div>
+    <div class="col-md-4">
+        <h2>OtherEvents.....</h2>
+        <p> <img src="../image/light.jpg" alt="DC" height="300" width="300" /></p>
+            </div>
+    <p><a class="btn btn-success" href="Html.Action("CheckoutDetails","Home")">CheckoutWithPayPal!!</a></p>
+</div>
+
+
+
 

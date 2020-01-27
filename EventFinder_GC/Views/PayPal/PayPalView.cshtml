@@ -1,37 +1,31 @@
-﻿
+﻿@model EventFinder_GC.Models.PayPalModel
 @{
-    ViewBag.Title = "PayPalView";
-}
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    <h2>PayPalView</h2>
-    <div>
-        <table>
-            <tr>
-                <td>
-                   Event Name:
-                </td>
-                <td>
-                    <input type="text" name="EventName" value="Eventname" readonly />
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Total Price:
-                </td>
-                <td>
-                    $<input type="text" name="totalPrice" value=" " readonly />
-                </td>
-            </tr>
-            <tr>
-                <td>
-                </td>
-                <td>
-                    <input type="submit" name="btnConfirm" value="Check Out with Paypal" />
-                </td>
-            </tr>
-        </table>
-    </div>
+    ViewBag.Title = "CheckoutDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Line Total</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                int Total = 0;
+            }
+           
+
+            <tr>
+                <td colspan="4" class="text-right"><b>Total: @Total</b></td>
+
+            </tr>
+        </tbody>
+    </table>
+    <a href="@Url.Action("PaymentWithPapal", "Payment")" class="btn btn-success">Payment >></a>
+
+}

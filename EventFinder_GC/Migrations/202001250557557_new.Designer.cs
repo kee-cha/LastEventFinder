@@ -7,6 +7,7 @@ namespace EventFinder_GC.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
+<<<<<<< HEAD:EventFinder_GC/Migrations/202001261736552_add_paypal.Designer.cs
     public sealed partial class add_paypal : IMigrationMetadata
     {
         private readonly ResourceManager Resources = new ResourceManager(typeof(add_paypal));
@@ -14,6 +15,15 @@ namespace EventFinder_GC.Migrations
         string IMigrationMetadata.Id
         {
             get { return "202001261736552_add_paypal"; }
+=======
+    public sealed partial class _new : IMigrationMetadata
+    {
+        private readonly ResourceManager Resources = new ResourceManager(typeof(_new));
+        
+        string IMigrationMetadata.Id
+        {
+            get { return "202001250557557_new"; }
+>>>>>>> 02362a658e835f4ab785c79ea3e85c672a537c01:EventFinder_GC/Migrations/202001250557557_new.Designer.cs
         }
         
         string IMigrationMetadata.Source

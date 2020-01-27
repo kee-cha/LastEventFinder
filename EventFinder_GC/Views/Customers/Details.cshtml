@@ -5,12 +5,12 @@
 }
 
 <div>
-<<<<<<< HEAD
+
     <h4>Customer</h4>
     <hr />
- 
 
     <dl class="dl-horizontal">
+
 
         <dt>
             @Html.DisplayNameFor(model => model.EventName)
@@ -55,7 +55,7 @@
         <dt>
             @Html.DisplayNameFor(model => model.Street)
         </dt>
-
+        <a href="https://localhost:44303/Views/Customers/Details.cshtml">https://localhost:44303/Views/Customers/Details.cshtml</a>
         <dd>
             @Html.DisplayFor(model => model.Street)
         </dd>
@@ -67,19 +67,7 @@
         <dd>
             @Html.DisplayFor(model => model.City)
         </dd>
-
     </dl>
-    
-       
-   
-
-    </div>
-    <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.CustomerId }) |
-        @Html.ActionLink("Back to List", "Index")
-    </p>
-=======
-
         <dt>
             @Html.DisplayNameFor(model => model.State)
         </dt>
@@ -108,18 +96,18 @@
 <h2>Event Host: @ViewBag.EventHostName</h2>
 <h2>Host Rating For This Category: @ViewBag.HostRatingByCategory</h2>
 
-<h2>Google Maps Implemented Here</h2>
-
 
 <div id="map"></div>
 <script>        
     function initMap() {
+        var directionsService = new google.maps.DirectionsService();
+        var directionsRenderer = new google.maps.DirectionsRenderer();
         var location = { lat: @Model.Latitude, lng: @Model.Longitude};
-        var map = new google.maps.Map(document.getElementById('map'), { zoom: 4, center: location });
+        var map = new google.maps.Map(document.getElementById('map'), { zoom: 12, center: location });
         var marker = new google.maps.Marker({ position: location, map: map });
     }
 </script>
 <script async defer src=@ViewBag.Key></script>
 
 <p>@Html.ActionLink("Back to Events List", "Index")</p>
->>>>>>> b7ad837b881e235cc03b00bc0b03503131cdd6bc
+

@@ -3,7 +3,7 @@ namespace EventFinder_GC.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class add_paypal : DbMigration
+    public partial class _new : DbMigration
     {
         public override void Up()
         {
@@ -44,11 +44,11 @@ namespace EventFinder_GC.Migrations
                         FoodInterest = c.Boolean(nullable: false),
                         MusicInterest = c.Boolean(nullable: false),
                         TechInterest = c.Boolean(nullable: false),
-                        AddressId = c.Int(nullable: false),
+                        AddressId = c.Int(),
                         ApplicationId = c.String(maxLength: 128),
                     })
                 .PrimaryKey(t => t.CustomerId)
-                .ForeignKey("dbo.Addresses", t => t.AddressId, cascadeDelete: true)
+                .ForeignKey("dbo.Addresses", t => t.AddressId)
                 .ForeignKey("dbo.AspNetUsers", t => t.ApplicationId)
                 .Index(t => t.AddressId)
                 .Index(t => t.ApplicationId);
@@ -123,10 +123,10 @@ namespace EventFinder_GC.Migrations
                         SubCategory = c.String(),
                         IsEvent = c.Boolean(nullable: false),
                         HostId = c.Int(nullable: false),
-                        AddressId = c.Int(nullable: false),
+                        AddressId = c.Int(),
                     })
                 .PrimaryKey(t => t.EventId)
-                .ForeignKey("dbo.Addresses", t => t.AddressId, cascadeDelete: true)
+                .ForeignKey("dbo.Addresses", t => t.AddressId)
                 .ForeignKey("dbo.Hosts", t => t.HostId, cascadeDelete: true)
                 .Index(t => t.HostId)
                 .Index(t => t.AddressId);

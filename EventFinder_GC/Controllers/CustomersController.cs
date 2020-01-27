@@ -141,6 +141,8 @@ namespace EventFinder_GC.Controllers
                 //viewbag the event host full name 
                 ViewBag.EventHostName = eventHost.FirstName + " " + eventHost.LastName;
                 ViewBag.HostRatingByCategory = avgRating;
+                var userId = User.Identity.GetUserId();
+                ViewBag.Customer = db.Customers.Where(c => c.ApplicationId == userId).SingleOrDefault();
             }
             return View(singleEvent);
         }
@@ -162,8 +164,7 @@ namespace EventFinder_GC.Controllers
                 return View(singleEvent);
             }
 
-            return View(singleEvent);
-            
+            return View(singleEvent);           
    
         }
 
@@ -188,14 +189,13 @@ namespace EventFinder_GC.Controllers
                 customer.ApplicationId = userId;
 
                 //must cast to int as session represents object prior to typecasting
-                customer.AddressId = (int)Session["AddressId"];
+                //customer.AddressId = (int)Session["AddressId"];
 
                 db.Customers.Add(customer);
                 db.SaveChanges();
-                return RedirectToAction("Index", "Customers");
+                return RedirectToAction("LogOut", "Account");
             }
 
-            ViewBag.AddressId = new SelectList(db.Addresses, "AddressId", "Street", customer.AddressId);
             ViewBag.ApplicationId = new SelectList(db.Users, "Id", "Email", customer.ApplicationId);
             return View(customer);
         }
@@ -212,7 +212,6 @@ namespace EventFinder_GC.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.AddressId = new SelectList(db.Addresses, "AddressId", "Street", customer.AddressId);
             ViewBag.ApplicationId = new SelectList(db.Users, "Id", "Email", customer.ApplicationId);
             return View(customer);
         }
@@ -230,7 +229,6 @@ namespace EventFinder_GC.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.AddressId = new SelectList(db.Addresses, "AddressId", "Street", customer.AddressId);
             ViewBag.ApplicationId = new SelectList(db.Users, "Id", "Email", customer.ApplicationId);
             return View(customer);
         }

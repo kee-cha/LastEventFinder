@@ -10,7 +10,7 @@ namespace EventFinder_GC.Models
     public class Host
     {
         [Key]
-        public int HostId { get; set; }
+        public int? HostId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         [ForeignKey("ApplicationUser")]

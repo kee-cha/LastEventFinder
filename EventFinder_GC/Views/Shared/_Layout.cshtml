@@ -24,32 +24,36 @@
                 @Html.ActionLink("Event_Milwaukee_2020", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    @if (User.IsInRole("Customer") == true)
-                    {
+                <div class="s-m-bar navbar-inverse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                         <li>@Html.ActionLink("Customer Home", "Index", "Customers")</li>
-                    }
-                    else
-                    {
+                    </ul>
+                    <a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/"><i class="fa fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/"><i class="fa fa-linkedin"></i></a>
+                    <a href="https://twitter.com/"><i class="fa fa-twitter"></i></a>
+                    <a href="https://www.youtube.com/"><i class="fa fa-youtube-play"></i></a>
 
-                        <li>@Html.ActionLink("Host Home", "Index", "Hosts")</li>
-                        <li>@Html.ActionLink("Hosted Events", "Details", "Events")</li>
-                    }
 
 
-                </ul>
 
-                @Html.Partial("_LoginPartial")
 
+                    @Html.Partial("_LoginPartial")
+                </div>
             </div>
 
-
         </div>
-
     </div>
-
+    <br/>
+    <br/>
+        <div class="col-md-12" >
+            <div class="image_logo navbar-header "padding:50px>
+                <img src="../image/DC.png" alt="DC" />
+            </div>
+        </div>
+    
 
     <div class="container body-content">
         @RenderBody()

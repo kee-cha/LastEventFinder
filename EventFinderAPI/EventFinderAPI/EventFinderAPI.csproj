@@ -270,9 +270,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202001242231217_new.cs" />
-    <Compile Include="Migrations\202001242231217_new.Designer.cs">
-      <DependentUpon>202001242231217_new.cs</DependentUpon>
+    <Compile Include="Migrations\202001262038569_redo.cs" />
+    <Compile Include="Migrations\202001262038569_redo.Designer.cs">
+      <DependentUpon>202001262038569_redo.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
@@ -378,8 +378,8 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202001242231217_new.resx">
-      <DependentUpon>202001242231217_new.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202001262038569_redo.resx">
+      <DependentUpon>202001262038569_redo.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

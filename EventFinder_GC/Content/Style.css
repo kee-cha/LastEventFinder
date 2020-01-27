@@ -5,7 +5,7 @@
 body{
     margin:0 auto;
     width:100%;
-}
+    }
 .slider{
     overflow:hidden;
     height:400px;
@@ -23,7 +23,7 @@ body{
     width:500%;
     margin:0px;
     left:0;
-    animation: 40s ravi infinite;
+    animation: 20s ravi infinite;
     }
   @keyframes ravi{
     0%{
@@ -48,10 +48,10 @@ body{
         left: -300%;
     }
     46%{
-      left:-400%;
+      left:-300%;
     }
     48% {
-        left:-300%;
+        left:-400%;
     }
     58% {
         left:-400%;
