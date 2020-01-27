@@ -49,7 +49,7 @@ namespace EventFinder_GC.Models
     public class LoginViewModel
     {
         [Required]
-        [Display(Name = "UserName")]
+        [Display(Name = "Username")]
 
         public string UserName { get; set; }
 
@@ -65,7 +65,7 @@ namespace EventFinder_GC.Models
     public class RegisterViewModel
     {
         [Required]
-        [Display(Name = "UserRoles")]
+        [Display(Name = "User Roles")]
         public string UserRoles { get; set; }
 
         [Required]
@@ -74,7 +74,7 @@ namespace EventFinder_GC.Models
         public string Email { get; set; }
 
         [Required]
-        [Display(Name = "UserName")]
+        [Display(Name = "Username")]
         public string UserName { get; set; }
 
         [Required]

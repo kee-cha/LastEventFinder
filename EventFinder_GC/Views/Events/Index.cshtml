@@ -4,11 +4,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<h2>Your Events</h2>
 
 <div class="btn-group-vertical">
     <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
@@ -81,16 +77,8 @@
     </div>
 </div>
 
-@Html.ActionLink("Joined Events", "Index", "CustomerEvents")
-
 <table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Address.Street)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Host.FirstName)
-        </th>
         <th>
             @Html.DisplayNameFor(model => model.EventName)
         </th>
@@ -99,6 +87,18 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Street)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.City)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.State)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ZipCode)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Category)
@@ -111,6 +111,7 @@
 
     @foreach (var item in Model)
     {
+<<<<<<< HEAD
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Host.FirstName)
@@ -138,6 +139,42 @@
 
             </td>
         </tr>
+=======
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.EventName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.VenueName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Date)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Street)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.City)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.State)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ZipCode)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Category)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.SubCategory)
+    </td>
+    <td>
+        @Html.ActionLink("Event Details", "Details", new { id = item.EventId }) |
+
+
+    </td>
+</tr>
+>>>>>>> 19fc8e23e747ca1bcb8d695bb95a273c552a8d70
 
 
     }

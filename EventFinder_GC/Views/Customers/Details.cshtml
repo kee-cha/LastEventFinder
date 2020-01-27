@@ -6,7 +6,6 @@
 
 <div>
 
-    <h4>Customer</h4>
     <hr />
 
     <dl class="dl-horizontal">
@@ -88,9 +87,14 @@
     <img src=@Html.Raw(Model.ImagePath)>
 </div>
 
-<p>
-    @Html.ActionLink("Back to List", "Index")
-</p>
+@Html.ActionLink("Rate Event Via Our SMS Feature!", "RedirectSMSRate")
+
+<p>@Html.ActionLink("Join This Event", "Join", "Events", new { id = Model.EventId },"")</p>
+
+
+
+
+
 
 <h2>Event Host and Rating</h2>
 <h2>Event Host: @ViewBag.EventHostName</h2>
@@ -98,14 +102,56 @@
 
 
 <div id="map"></div>
-<script>        
+<script>
     function initMap() {
-        var directionsService = new google.maps.DirectionsService();
-        var directionsRenderer = new google.maps.DirectionsRenderer();
-        var location = { lat: @Model.Latitude, lng: @Model.Longitude};
-        var map = new google.maps.Map(document.getElementById('map'), { zoom: 12, center: location });
-        var marker = new google.maps.Marker({ position: location, map: map });
-    }
+    var pointA = new google.maps.LatLng(@ViewBag.CustLat, @ViewBag.CustLng),
+        pointB = new google.maps.LatLng(@Model.Latitude, @Model.Longitude),
+        myOptions = {
+            zoom: 7,
+            center: pointA
+        },
+        map = new google.maps.Map(document.getElementById('map'), myOptions),
+        // Instantiate a directions service.
+        directionsService = new google.maps.DirectionsService,
+        directionsDisplay = new google.maps.DirectionsRenderer({
+            map: map
+        }),
+        markerA = new google.maps.Marker({
+            position: pointA,
+            title: "point A",
+            label: "A",
+            map: map
+        }),
+        markerB = new google.maps.Marker({
+            position: pointB,
+            title: "point B",
+            label: "B",
+            map: map
+        });
+
+    // get route from A to B
+    calculateAndDisplayRoute(directionsService, directionsDisplay, pointA, pointB);
+
+}
+
+
+
+function calculateAndDisplayRoute(directionsService, directionsDisplay, pointA, pointB) {
+    directionsService.route({
+        origin: pointA,
+        destination: pointB,
+        avoidTolls: true,
+        avoidHighways: false,
+        travelMode: google.maps.TravelMode.DRIVING
+    }, function (response, status) {
+        if (status == google.maps.DirectionsStatus.OK) {
+            directionsDisplay.setDirections(response);
+        } else {
+            window.alert('Directions request failed due to ' + status);
+        }
+    });
+}
+
 </script>
 <script async defer src=@ViewBag.Key></script>
 

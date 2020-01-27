@@ -5,10 +5,9 @@
     //<img src=${event.ImageURL}>
 }
 
-<h2>Index</h2>
+<h2>Recommended Events</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
     @Html.ActionLink("See All Events", "Index", new { seeAllEvents = true })
 </p>
 
@@ -60,11 +59,11 @@
         <div class="dropdown-divider"></div>
         <h5 class="dropdown-header" href="#">Food/Drink</h5>
 
-        @Html.ActionLink("Classes", "FilterByCatAsync", new { subCategory = "Class" })<br />
+        @Html.ActionLink("Classes", "FilterByCatAsync", new { subCategory = "Classes" })<br />
         <div class="dropdown-divider"></div>
         @Html.ActionLink("Beer Gardens", "FilterByCatAsync", new { subCategory = "Beer Garden" })<br />
         <div class="dropdown-divider"></div>
-        @Html.ActionLink("Wine Tasing", "FilterByCatAsync", new { subCategory = "Wine" })<br />
+        @Html.ActionLink("Wine Tasting", "FilterByCatAsync", new { subCategory = "Wine Tasting" })<br />
         <div class="dropdown-divider"></div>
 
 
@@ -82,7 +81,7 @@
 </div>
 
     </div>
-    <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#Events">All Events!</button>
+    @*<button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#Events">All Events!</button>*@
     @*<div id="Events" class="collapse">*@
 
 
@@ -156,9 +155,8 @@
                         @Html.DisplayFor(modelItem => item.ZipCode)
                     </td>
                     <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.EventId }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.EventId }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.EventId })
+
+                        @Html.ActionLink("Event Details", "Details", new { id = item.EventId }) |
                     </td>
                 </tr>
             }
@@ -166,50 +164,4 @@
     @*</div>*@
 
 
-    <h2>Events List:</h2>
-    <ul id="events"></ul>
-
-    <button onclick="GetButtonNoParams()" id="Get">Get</button>
-
-    @section Scripts
-{
-
-    <script type="text/javascript">
-
-        var $eventsList = $('#events');
-
-        function addEvent(event) {
-            $eventsList.append(`<li id = ${event.EventId}><strong>Event Name</strong>: ${event.EventName}
-                                                                  <br><strong>Venue Name</strong>: ${event.VenueName}
-                                                                  <br><strong>Date</strong>: ${event.Date}
-                                                                  <br><strong>Category</strong>: ${event.Category}
-                                                                  <br><strong>SubCategory</strong>: ${event.SubCategory}
-                                                                  <br><strong>Street</strong>: ${event.Street}
-                                                                  <br><strong>City</strong>: ${event.City}
-                                                                  <br><strong>State</strong>: ${event.State}
-                                                                  <br><strong>ZipCode</strong>: ${event.ZipCode}</li><br> `);
-
-
-        }
-
-
-        function GetButtonNoParams() {
-            $(function () {
-                $.ajax({
-                    type: 'GET',
-                    url: 'https://localhost:44355/api/Events',
-                    success: function (events) {
-                        $.each(events, function (i, event) { //goes through array of data and manipulates each item
-                            addEvent(event);
-
-
-                        });
-                    },
-                    error: function () {
-                        alert('error loading events');
-                    }
-                });
-            }
-
-        </script>
-    }
+   
