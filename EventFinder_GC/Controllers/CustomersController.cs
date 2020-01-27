@@ -11,10 +11,13 @@ using System.Web.Mvc;
 using EventFinder_GC.Models;
 using Microsoft.AspNet.Identity;
 using Newtonsoft.Json;
+using Twilio;
+using Twilio.AspNet.Mvc;
+using Twilio.Rest.Api.V2010.Account;
 
 namespace EventFinder_GC.Controllers
 {
-    public class CustomersController : Controller
+    public class CustomersController : TwilioController
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
@@ -102,6 +105,24 @@ namespace EventFinder_GC.Controllers
             return filteredEvents;
         }
 
+
+        public ActionResult RedirectSMSRate()
+        {
+            const string accountSid = "ACf8ef518f2caa247cdc63eff68b63c9ed";
+            const string authToken = "8acbe0f623b6616a6990d20a7cc8681b";
+            TwilioClient.Init(accountSid, authToken);
+
+            var message = MessageResource.Create(
+            body: "Thank you for your participation in our experimental feature! Please reply with a rating for your event with an integer between 1 and 5.",
+            from: new Twilio.Types.PhoneNumber("+12016227399"),
+            to: new Twilio.Types.PhoneNumber("+19206557490")
+            );
+
+            Console.WriteLine(message.Sid);
+            return RedirectToAction("Index", "Home");
+        }
+
+
         // GET: Customers/Details/5
         public async Task<ActionResult> Details(int? id)
         {
@@ -109,6 +130,7 @@ namespace EventFinder_GC.Controllers
             EventApi singleEvent = new EventApi();
             double? rating = 0;
             double count = 0;
+            Session["EventId"] = id;
 
             HttpClient client = new HttpClient();
             string url = "https://localhost:44355/api/Events";
@@ -200,22 +222,6 @@ namespace EventFinder_GC.Controllers
             return View(customer);
         }
 
-        // GET: Customers/Edit/5
-        public ActionResult Edit(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Customer customer = db.Customers.Find(id);
-            if (customer == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.ApplicationId = new SelectList(db.Users, "Id", "Email", customer.ApplicationId);
-            return View(customer);
-        }
-
         // POST: Customers/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
@@ -230,21 +236,6 @@ namespace EventFinder_GC.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.ApplicationId = new SelectList(db.Users, "Id", "Email", customer.ApplicationId);
-            return View(customer);
-        }
-
-        // GET: Customers/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Customer customer = db.Customers.Find(id);
-            if (customer == null)
-            {
-                return HttpNotFound();
-            }
             return View(customer);
         }
 
