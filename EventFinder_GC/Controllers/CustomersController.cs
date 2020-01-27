@@ -92,6 +92,7 @@ namespace EventFinder_GC.Controllers
         }
         
 
+
         public List<EventApi> FilterByInterest(EventApi[] events, Customer customer)
         {
             List<EventApi> filteredEvents = new List<EventApi>();
@@ -239,7 +240,7 @@ namespace EventFinder_GC.Controllers
             ViewBag.ApplicationId = new SelectList(db.Users, "Id", "Email", customer.ApplicationId);
             return View(customer);
         }
-
+        
         // POST: Customers/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.

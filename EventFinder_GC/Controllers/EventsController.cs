@@ -4,9 +4,13 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using EventFinder_GC.Models;
+using Microsoft.AspNet.Identity;
+using Newtonsoft.Json;
 
 namespace EventFinder_GC.Controllers
 {
@@ -17,8 +21,22 @@ namespace EventFinder_GC.Controllers
         // GET: Events
         public ActionResult Index()
         {
-            var events = db.Events.Include(e => e.Host).ToList(); 
-            return View(events);
+            List<Event> currentEvents = new List<Event>();
+            string userId = User.Identity.GetUserId();
+            Customer customer = db.Customers.Where(c => c.ApplicationId == userId).SingleOrDefault();
+            var events = db.CustomerEvents.Where(c=>c.CustomerId == customer.CustomerId).ToList();
+            var allEvents = db.Events.ToList();
+            foreach (var item in allEvents)
+            {
+                foreach (var ids in events)
+                {
+                    if (ids.EventId == item.EventId)
+                    {
+                        currentEvents.Add(item);
+                    }
+                }
+            }
+            return View(currentEvents);
         }
         public ActionResult FilterByCat(string subCategory)
         {
@@ -40,7 +58,41 @@ namespace EventFinder_GC.Controllers
             }
             return View(@event);
         }
+        public async Task<ActionResult> Join(Event joinEvent, int id)
+        {
+            joinEvent = new Event();
+            string userId = User.Identity.GetUserId();
+            Customer customer = db.Customers.Where(c => c.ApplicationId == userId).SingleOrDefault();
+            HttpClient client = new HttpClient();
+            string url = "https://localhost:44355/api/Events/"+id;
+            HttpResponseMessage response = await client.GetAsync(url);
+            string jsonResult = await response.Content.ReadAsStringAsync();
+            if (response.IsSuccessStatusCode)
+            {
+                EventApi events = JsonConvert.DeserializeObject<EventApi>(jsonResult);
 
+                joinEvent.EventName = events.EventName;
+                joinEvent.VenueName = events.VenueName;
+                joinEvent.Street = events.Street;
+                joinEvent.Date = events.Date;
+                joinEvent.Category = events.Category;
+                joinEvent.SubCategory = events.SubCategory;
+                joinEvent.City = events.City;
+                joinEvent.State = events.State;
+                joinEvent.ZipCode = events.ZipCode;
+                joinEvent.HostId = events.HostId;
+                db.Events.Add(joinEvent);
+                db.SaveChanges();
+                CustomerEvent custEvent = new CustomerEvent();
+                custEvent.EventId = joinEvent.EventId;
+                custEvent.CustomerId = customer.CustomerId;
+                db.CustomerEvents.Add(custEvent);
+                db.SaveChanges();
+
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
         // GET: Events/Create
         public ActionResult Create()
         {

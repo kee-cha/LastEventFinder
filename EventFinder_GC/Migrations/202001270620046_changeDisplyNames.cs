@@ -3,7 +3,7 @@ namespace EventFinder_GC.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class NewPullMigration : DbMigration
+    public partial class changeDisplyNames : DbMigration
     {
         public override void Up()
         {

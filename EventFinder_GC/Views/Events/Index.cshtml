@@ -81,13 +81,10 @@
     </div>
 </div>
 
-@Html.ActionLink("Joined Events", "Index", "CustomerEvents")
+@Html.ActionLink("Joined Events", "Index", "Events")
 
 <table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Address.Street)
-        </th>
         <th>
             @Html.DisplayNameFor(model => model.Host.FirstName)
         </th>
@@ -101,6 +98,18 @@
             @Html.DisplayNameFor(model => model.Date)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.Street)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.City)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.State)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ZipCode)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Category)
         </th>
         <th>
@@ -111,36 +120,45 @@
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Address.Street)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Host.FirstName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EventName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VenueName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Date)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Category)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SubCategory)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.EventId }) |
-                @Html.ActionLink("Details", "Details", new { id = item.EventId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.EventId })
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Host.FirstName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.EventName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.VenueName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Date)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Street)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.City)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.State)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ZipCode)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Category)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.SubCategory)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.EventId }) |
+        @Html.ActionLink("Details", "Details", new { id = item.EventId }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.EventId })
 
 
-            </td>
-        </tr>
+    </td>
+</tr>
 
 
     }

@@ -197,9 +197,9 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\SmsController.cs" />
-    <Compile Include="Migrations\202001261959011_NewPullMigration.cs" />
-    <Compile Include="Migrations\202001261959011_NewPullMigration.Designer.cs">
-      <DependentUpon>202001261959011_NewPullMigration.cs</DependentUpon>
+    <Compile Include="Migrations\202001270620046_changeDisplyNames.cs" />
+    <Compile Include="Migrations\202001270620046_changeDisplyNames.Designer.cs">
+      <DependentUpon>202001270620046_changeDisplyNames.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\EventAPIClass.cs" />
@@ -308,6 +308,7 @@
     <Content Include="Views\Hosts\Index.cshtml" />
     <Content Include="Views\Hosts\CreateEvent.cshtml" />
     <Content Include="Views\Customers\Create.cshtml" />
+    <Content Include="Views\Events\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -328,8 +329,8 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202001261959011_NewPullMigration.resx">
-      <DependentUpon>202001261959011_NewPullMigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202001270620046_changeDisplyNames.resx">
+      <DependentUpon>202001270620046_changeDisplyNames.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

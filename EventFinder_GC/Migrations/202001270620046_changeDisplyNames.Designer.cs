@@ -7,13 +7,13 @@ namespace EventFinder_GC.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class NewPullMigration : IMigrationMetadata
+    public sealed partial class changeDisplyNames : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(NewPullMigration));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(changeDisplyNames));
         
         string IMigrationMetadata.Id
         {
-            get { return "202001261959011_NewPullMigration"; }
+            get { return "202001270620046_changeDisplyNames"; }
         }
         
         string IMigrationMetadata.Source
